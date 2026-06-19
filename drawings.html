@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO START -->
+
+<title>Drawings by Ulises Vargas | Vargas Arts</title>
+
+<meta name="description"
+      content="Traditional drawings and sketches by artist Ulises Vargas featuring wildlife, nature, fantasy and creative studies.">
+
+<link rel="canonical"
+      href="https://vargasarts.com/drawings.html">
+
+<meta property="og:url"
+      content="https://vargasarts.com/drawings.html">
+
+<meta property="og:title"
+      content="Drawings by Ulises Vargas">
+
+<meta property="og:description"
+      content="Explore traditional drawings and sketches created by artist Ulises Vargas.">
+
+<meta property="og:image"
+      content="https://vargasarts.com/assets/img/drawings/Tiger.jpg">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:site_name"
+      content="Vargas Arts">
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Drawings by Ulises Vargas">
+
+<meta name="twitter:description"
+      content="Explore traditional drawings and sketches created by artist Ulises Vargas.">
+
+<meta name="twitter:image"
+      content="https://vargasarts.com/assets/img/drawings/Tiger.jpg">
+
+<!-- SEO END -->
+    <link rel="shortcut icon" type="image/png" href="./assets/img/Yofabicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/vargas-nav.css?v=nav-system-6">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold2: #f3d979;
+            --white: #f8f3e9;
+            --muted: #b9b1a3;
+            --line: rgba(212, 175, 55, .28)
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Montserrat, Arial, sans-serif;
+            background: #050505;
+            color: var(--white)
+        }
+
+        a {
+            text-decoration: none !important
+        }
+
+        .container {
+            max-width: 1180px
+        }
+
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: end;
+            padding: 8.5rem 0 4.5rem;
+            background: linear-gradient(90deg, rgba(0, 0, 0, .96), rgba(0, 0, 0, .72), rgba(0, 0, 0, .25)), url('./assets/img/drawings/Tiger.jpg') center right/cover no-repeat
+        }
+
+        .eyebrow,
+        .kicker {
+            color: var(--gold2);
+            font-weight: 900;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            font-size: .76rem;
+            margin-bottom: .8rem
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6.8rem);
+            line-height: .9;
+            font-weight: 900;
+            letter-spacing: -.07em;
+            text-transform: uppercase;
+            margin: 0
+        }
+
+        .hero p {
+            max-width: 720px;
+            color: rgba(248, 243, 233, .9);
+            font-size: 1.08rem;
+            line-height: 1.75;
+            margin: 1rem 0 0
+        }
+
+        .meta {
+            color: var(--gold2);
+            font-weight: 800;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            font-size: .82rem;
+            margin-top: 1rem
+        }
+
+        .section {
+            padding: 5rem 0
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 2rem
+        }
+
+        .head h2 {
+            font-size: clamp(2rem, 4vw, 3.35rem);
+            line-height: 1.02;
+            font-weight: 900;
+            letter-spacing: -.055em;
+            margin: 0
+        }
+
+        .head p {
+            max-width: 540px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin: 0
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.15rem
+        }
+
+        .cardx {
+            position: relative;
+            min-height: 380px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: #111;
+            cursor: pointer;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .55)
+        }
+
+        .cardx img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s
+        }
+
+        .cardx:hover img {
+            transform: scale(1.07)
+        }
+
+        .cardx:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, .35) 60%, rgba(0, 0, 0, .92))
+        }
+
+        .info {
+            position: absolute;
+            z-index: 2;
+            left: 1.2rem;
+            right: 1.2rem;
+            bottom: 1.15rem
+        }
+
+        .type {
+            color: var(--gold2);
+            font-size: .68rem;
+            font-weight: 900;
+            letter-spacing: .18em;
+            text-transform: uppercase
+        }
+
+        .title {
+            margin: .3rem 0 0;
+            font-size: 1.2rem;
+            font-weight: 900
+        }
+
+        .desc {
+            margin: .35rem 0 0;
+            color: rgba(248, 243, 233, .74);
+            font-size: .88rem
+        }
+
+        .note {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            background: rgba(255, 255, 255, .03);
+            color: var(--muted);
+            line-height: 1.8
+        }
+
+        .note strong {
+            color: var(--gold2)
+        }
+
+        .footer {
+            padding: 3rem 0;
+            border-top: 1px solid rgba(212, 175, 55, .14);
+            color: var(--muted)
+        }
+
+        .footgrid {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr .7fr;
+            gap: 2rem
+        }
+
+        .footer h3 {
+            color: var(--gold2);
+            font-weight: 900;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-size: 1rem
+        }
+
+        .footer a {
+            display: block;
+            color: var(--muted);
+            margin: .35rem 0
+        }
+
+        .modal-fix {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 46px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background: rgba(0, 0, 0, .96)
+        }
+
+        .modal-content-fix {
+            position: relative;
+            margin: auto;
+            width: 92%;
+            max-width: 1180px
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            top: 14px;
+            right: 28px;
+            font-size: 42px;
+            z-index: 10000;
+            cursor: pointer
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        .pic-fit {
+            max-height: 82vh;
+            object-fit: contain;
+            background: #050505;
+            border-radius: 18px;
+            border: 1px solid var(--line)
+        }
+
+        .numbertext {
+            text-align: center;
+            color: var(--gold2);
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .65rem 0 1rem
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 28px
+        }
+
+        .next {
+            right: 0
+        }
+
+        @media(max-width:991px) {
+            .grid,
+            .footgrid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .head {
+                display: block
+            }
+
+            .head p {
+                margin-top: 1rem
+            }
+        }
+
+        @media(max-width:680px) {
+            .grid,
+            .footgrid {
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                min-height: 64vh;
+                background-position: center
+            }
+
+            .section {
+                padding: 3.8rem 0
+            }
+
+            .cardx {
+                min-height: 380px
+            }
+        }
+    </style>
+      <link rel="stylesheet" href="./assets/css/vargas-modal.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top va-nav">
+        <div class="container"><a class="navbar-brand va-brand" href="./index.html">Vargas Arts</a><button
+                class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon-line"></span><span
+                    class="navbar-toggler-icon-line"></span><span class="navbar-toggler-icon-line"></span></button>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./paintings.html">Paintings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./digital_art.html">Digital Art</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="./drawings.html">Drawings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./wall_murals.html">Murals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./videos.html">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./sales.html">Art for Sale</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="container">
+            <div>
+                <div class="eyebrow">Traditional studies and detail work</div>
+                <h1>Drawings Gallery</h1>
+                <p>Explore original drawings by Ulises Vargas, including wildlife, marine life, close-up nature studies
+                    and traditional artwork.</p>
+                <div class="meta">Drawings • Wildlife • Nature Studies • Traditional Art</div>
+            </div>
+        </div>
+    </header>
+    <main class="section">
+        <div class="container">
+            <div class="head">
+                <div>
+                    <div class="kicker">Drawing Collection</div>
+                    <h2>Line, detail and observation.</h2>
+                </div>
+                <p>A focused collection of traditional drawings that highlight texture, form, expression and natural
+                    subjects.</p>
+            </div>
+            <div class="grid">
+                <article class="cardx" onclick="openModal();currentSlide(1)"><img src="./assets/img/drawings/Tiger.jpg"
+                        alt="Tiger drawing by Ulises Vargas">
+                    <div class="info">
+                        <div class="type">Drawing</div>
+                        <div class="title">Tiger</div>
+                        <p class="desc">Wildlife study</p>
+                    </div>
+                </article>
+                <article class="cardx" onclick="openModal();currentSlide(2)"><img
+                        src="./assets/img/drawings/Lionfish.jpg" alt="Lionfish drawing by Ulises Vargas">
+                    <div class="info">
+                        <div class="type">Drawing</div>
+                        <div class="title">Lionfish</div>
+                        <p class="desc">Marine life study</p>
+                    </div>
+                </article>
+                <article class="cardx" onclick="openModal();currentSlide(3)"><img src="./assets/img/drawings/Bee.jpg"
+                        alt="Bee drawing by Ulises Vargas">
+                    <div class="info">
+                        <div class="type">Drawing</div>
+                        <div class="title">Bee</div>
+                        <p class="desc">Nature study</p>
+                    </div>
+                </article>
+                <article class="cardx" onclick="openModal();currentSlide(4)"><img
+                        src="./assets/img/drawings/Dewdrop.jpg" alt="Dewdrop drawing by Ulises Vargas">
+                    <div class="info">
+                        <div class="type">Drawing</div>
+                        <div class="title">Dewdrop</div>
+                        <p class="desc">Nature detail study</p>
+                    </div>
+                </article>
+            </div>
+            <div class="note"><strong>Drawing is the foundation of visual storytelling.</strong> These pieces show
+                observation, patience and detail before color, paint or digital effects are added.</div>
+        </div>
+    </main>
+    <div id="myModal-fix" class="modal-fix"><span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content-fix">
+            <div class="mySlides">
+                <div class="numbertext">"TIGER" • WILDLIFE DRAWING</div><img class="pic-fit"
+                    src="./assets/img/drawings/Tiger.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">"LIONFISH" • MARINE LIFE DRAWING</div><img class="pic-fit"
+                    src="./assets/img/drawings/Lionfish.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">"BEE" • NATURE STUDY</div><img class="pic-fit"
+                    src="./assets/img/drawings/Bee.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">"DEWDROP" • NATURE DETAIL DRAWING</div><img class="pic-fit"
+                    src="./assets/img/drawings/Dewdrop.jpg" style="width:100%">
+            </div><a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next"
+                onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footgrid">
+                <div>
+                    <h3>Arts by Ulises Vargas</h3>
+                    <p>Original paintings, digital artwork, drawings and murals created by Ulises Vargas in Gainesville,
+                        Florida.</p>
+                </div>
+                <div>
+                    <h3>Explore</h3><a href="./index.html">Home</a><a href="./paintings.html">Paintings</a><a
+                        href="./digital_art.html">Digital Art</a><a href="./sales.html">Art For Sale</a>
+                </div>
+                <div>
+                    <h3>Connect</h3><a href="./about.html">About the Artist</a><a href="./contact.html">Contact</a><a
+                        href="https://www.instagram.com/ulises_vargas_arts/" target="_blank"
+                        rel="noopener">Instagram</a>
+                    <h3>Legal</h3><a href="./privacy.html">Privacy Policy</a><a href="./terms.html">Terms of Use</a><a
+                        href="./copyright.html">Copyright</a><a href="./accessibility.html">Accessibility</a>
+                </div>
+            </div>
+            <p>© Arts by Ulises Vargas. Gainesville, Florida.</p>
+        </div>
+    </footer>
+    <script src="./assets/js/modalpic.js"></script>
+    <script src="./assets/js/no_right.js"></script>
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

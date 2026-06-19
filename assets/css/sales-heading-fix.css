@@ -1,0 +1,107 @@
+.sales-page-modern h1 {
+  margin-bottom: 0.35rem !important;
+}
+
+.sales-page-modern h1::before,
+.sales-page-modern h1::after {
+  content: none !important;
+  display: none !important;
+}
+
+.sales-page-modern .sales-divider {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  width: min(420px, 76vw) !important;
+  margin: 0.25rem auto 1.2rem !important;
+}
+
+.sales-page-modern .sales-divider span {
+  display: block !important;
+  width: 160px !important;
+  max-width: 34vw !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,.95)) !important;
+}
+
+.sales-page-modern .sales-divider span:last-child {
+  background: linear-gradient(90deg, rgba(212,175,55,.95), transparent) !important;
+}
+
+.sales-page-modern .sales-divider i {
+  display: block !important;
+  width: 11px !important;
+  height: 11px !important;
+  flex: 0 0 11px !important;
+  transform: rotate(45deg) !important;
+  border: 1px solid rgba(212,175,55,.98) !important;
+  background: #08090b !important;
+}
+
+.sales-page-modern .sales-intro {
+  max-width: 760px !important;
+  margin: 0 auto 3rem !important;
+  color: rgba(232,235,241,.78) !important;
+  font-size: clamp(1.12rem, 1.1vw, 1.42rem) !important;
+  line-height: 1.55 !important;
+}
+
+.sales-page-modern .artist-statement {
+  display: block !important;
+  margin-bottom: .35rem !important;
+  color: rgba(248,243,225,.94) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-style: italic !important;
+  font-size: clamp(1.55rem, 1.55vw, 2.05rem) !important;
+  letter-spacing: .035em !important;
+}
+
+.sales-page-modern .card h3 {
+  min-height: 68px !important;
+  font-size: clamp(1.65rem, 1.55vw, 2.25rem) !important;
+  margin: 1.35rem 1rem 1rem !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .sales-page-modern .sales-divider {
+    width: min(280px, 70vw) !important;
+    gap: 10px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .sales-page-modern .sales-divider span {
+    width: 105px !important;
+    height: 2px !important;
+  }
+
+  .sales-page-modern .sales-intro {
+    margin-bottom: 2.6rem !important;
+    font-size: clamp(1.06rem, 2.75vw, 1.32rem) !important;
+    line-height: 1.48 !important;
+  }
+
+  .sales-page-modern .artist-statement {
+    font-size: clamp(1.32rem, 3.6vw, 1.72rem) !important;
+  }
+
+  .sales-page-modern .card h3 {
+    min-height: 60px !important;
+    font-size: clamp(1.48rem, 4.35vw, 2.05rem) !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .sales-page-modern .sales-divider {
+    width: min(230px, 66vw) !important;
+  }
+
+  .sales-page-modern .sales-divider span {
+    width: 82px !important;
+  }
+
+  .sales-page-modern .card h3 {
+    min-height: 52px !important;
+    font-size: clamp(1.32rem, 4.6vw, 1.72rem) !important;
+  }
+}

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO START -->
+
+  <title>Vargas Arts | Original Artwork by Ulises Vargas</title>
+
+  <meta name="description"
+    content="Original paintings, drawings, digital art and murals by artist Ulises Vargas. Explore wildlife, fantasy and fine art creations.">
+
+  <link rel="canonical" href="https://vargasarts.com/">
+
+  <meta property="og:url" content="https://vargasarts.com/">
+
+  <meta property="og:title" content="Vargas Arts | Original Artwork by Ulises Vargas">
+
+  <meta property="og:description"
+    content="Original paintings, drawings, digital art and murals by artist Ulises Vargas.">
+
+  <meta property="og:image" content="https://vargasarts.com/assets/img/paintings/Sunrise.jpg">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:site_name" content="Vargas Arts">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="twitter:title" content="Vargas Arts | Original Artwork by Ulises Vargas">
+
+  <meta name="twitter:description"
+    content="Original paintings, drawings, digital art and murals by artist Ulises Vargas.">
+
+  <meta name="twitter:image" content="https://vargasarts.com/assets/img/paintings/Sunrise.jpg">
+
+  <!-- SEO END -->
+
+  <link rel="shortcut icon" type="image/png" href="./assets/img/Yofabicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800,900&display=swap"
+    rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/css/vargas-nav.css?v=nav-system-6">
+  <style>
+    :root {
+      --black: #050505;
+      --gold: #d4af37;
+      --gold-light: #f3d979;
+      --white: #f8f3e9;
+      --muted: #b9b1a3;
+      --border: rgba(212, 175, 55, .28);
+      --shadow: 0 26px 80px rgba(0, 0, 0, .55)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Montserrat, Arial, sans-serif;
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden
+    }
+
+    a {
+      text-decoration: none !important
+    }
+
+    .container {
+      max-width: 1180px
+    }
+
+    .va-nav {
+      background: rgba(5, 5, 5, .92) !important;
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(212, 175, 55, .18);
+      padding: .95rem 0
+    }
+
+    .va-brand {
+      color: var(--gold-light) !important;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .98rem;
+      white-space: nowrap
+    }
+
+    .va-nav .nav-link {
+      color: rgba(248, 243, 233, .86) !important;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-left: .35rem
+    }
+
+    .va-nav .nav-link:hover {
+      color: var(--gold-light) !important
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(212, 175, 55, .36);
+      border-radius: 10px;
+      padding: .45rem .65rem
+    }
+
+    .navbar-toggler-icon-line {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 4px 0;
+      background: var(--gold-light)
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(90deg, rgba(0, 0, 0, .94), rgba(0, 0, 0, .7), rgba(0, 0, 0, .28)), url('./assets/img/paintings/Sunrise.jpg') center right/cover no-repeat
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 68% 44%, rgba(243, 217, 121, .2), transparent 28%), linear-gradient(180deg, rgba(0, 0, 0, .02), rgba(0, 0, 0, .92));
+      pointer-events: none
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      padding: 8rem 0 5.5rem
+    }
+
+    .eyebrow,
+    .kicker {
+      color: var(--gold-light);
+      font-weight: 900;
+      letter-spacing: .23em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      margin-bottom: .8rem
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .eyebrow:before {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold))
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(3.2rem, 10vw, 8.7rem);
+      line-height: .88;
+      font-weight: 900;
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, .75)
+    }
+
+    .hero-title span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.2px rgba(243, 217, 121, .78);
+      font-size: .72em;
+      letter-spacing: -.04em
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      margin: 1.15rem 0 0;
+      color: rgba(248, 243, 233, .9);
+      font-size: clamp(1.02rem, 2.2vw, 1.35rem);
+      line-height: 1.65;
+      font-weight: 500
+    }
+
+    .hero-meta {
+      margin: 1.1rem 0 0;
+      color: var(--gold-light);
+      font-weight: 700;
+      line-height: 1.55
+    }
+
+    .artist-signature {
+      margin: .95rem 0 0;
+      color: rgba(248, 243, 233, .78);
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .artist-signature strong {
+      color: var(--gold-light)
+    }
+
+    .brush-wrap {
+      width: min(500px, 88vw);
+      margin: 1.8rem 0 2.2rem
+    }
+
+    .brush-svg {
+      width: 100%;
+      height: 42px;
+      display: block
+    }
+
+    .brush-line {
+      stroke: url(#goldGradient);
+      stroke-width: 10;
+      stroke-linecap: round;
+      fill: none;
+      filter: drop-shadow(0 8px 16px rgba(212, 175, 55, .34));
+      stroke-dasharray: 620;
+      stroke-dashoffset: 620;
+      animation: drawBrush 2.2s ease forwards .4s
+    }
+
+    @keyframes drawBrush {
+      to {
+        stroke-dashoffset: 0
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem
+    }
+
+    .btn-va {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: .85rem 1.3rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: .2s
+    }
+
+    .btn-gold {
+      color: #080808;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 16px 38px rgba(212, 175, 55, .24)
+    }
+
+    .btn-outline {
+      color: var(--white);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .035)
+    }
+
+    .btn-va:hover {
+      transform: translateY(-3px);
+      color: #080808
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      border-color: var(--gold)
+    }
+
+    .scroll-cue {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      color: var(--gold-light);
+      font-size: 1.5rem;
+      animation: floatDown 1.8s ease-in-out infinite
+    }
+
+    @keyframes floatDown {
+
+      0%,
+      100% {
+        transform: translate(-50%, 0)
+      }
+
+      50% {
+        transform: translate(-50%, 8px)
+      }
+    }
+
+    .section {
+      padding: 6rem 0
+    }
+
+    .section.alt {
+      background: linear-gradient(180deg, #090909, #11100d);
+      border-top: 1px solid rgba(212, 175, 55, .12);
+      border-bottom: 1px solid rgba(212, 175, 55, .12)
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 2.4rem
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4.6vw, 3.7rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.055em;
+      margin: 0 0 .8rem
+    }
+
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 500;
+      margin: 0
+    }
+
+    .spotlight {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 1.15rem
+    }
+
+    .spotlight-side {
+      display: grid;
+      gap: 1.15rem
+    }
+
+    .card-art,
+    .category-card {
+      position: relative;
+      display: block;
+      min-height: 330px;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: #111;
+      color: var(--white) !important;
+      box-shadow: var(--shadow);
+      transition: .25s
+    }
+
+    .card-art.large {
+      min-height: 560px
+    }
+
+    .spotlight-side .card-art {
+      min-height: 272px
+    }
+
+    .card-art:hover,
+    .category-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(243, 217, 121, .72)
+    }
+
+    .card-art img,
+    .category-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: .65s
+    }
+
+    .card-art:hover img,
+    .category-card:hover img {
+      transform: scale(1.08);
+      filter: saturate(1.08) contrast(1.05)
+    }
+
+    .card-art:after,
+    .category-card:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 28%, rgba(0, 0, 0, .38) 58%, rgba(0, 0, 0, .9))
+    }
+
+    .card-info {
+      position: absolute;
+      z-index: 2;
+      left: 1.35rem;
+      right: 1.35rem;
+      bottom: 1.3rem
+    }
+
+    .card-label {
+      color: var(--gold-light);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase
+    }
+
+    .card-title {
+      margin: .35rem 0 0;
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -.035em;
+      text-shadow: 0 6px 22px rgba(0, 0, 0, .7)
+    }
+
+    .card-copy {
+      margin: .45rem 0 0;
+      color: rgba(248, 243, 233, .78);
+      line-height: 1.55;
+      font-size: .92rem
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.15rem
+    }
+
+    .category-card {
+      min-height: 320px
+    }
+
+    .proof-strip,
+    .collector-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 3rem
+    }
+
+    .proof,
+    .collector-card {
+      padding: 1.25rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .025)
+    }
+
+    .proof strong,
+    .collector-card strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: .25rem
+    }
+
+    .proof span,
+    .collector-card span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: .88rem
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 2rem
+    }
+
+    .artist-frame {
+      position: relative;
+      border-radius: 32px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .72)), url('./assets/img/Ulises_Vargas.png') center/cover no-repeat;
+      min-height: 460px;
+      box-shadow: var(--shadow);
+      overflow: hidden
+    }
+
+    .artist-frame:after {
+      content: "Ulises Vargas";
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.2rem;
+      color: var(--gold-light);
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase
+    }
+
+    .quote-box {
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
+      margin: 1.2rem 0 0;
+      color: rgba(248, 243, 233, .84);
+      line-height: 1.75;
+      font-style: italic
+    }
+
+    .cta {
+      padding: 4rem 2rem;
+      border-radius: 34px;
+      border: 1px solid rgba(212, 175, 55, .36);
+      background: linear-gradient(90deg, rgba(0, 0, 0, .94), rgba(0, 0, 0, .72), rgba(0, 0, 0, .35)), url('./assets/img/paintings/Sunrise.jpg') center/cover no-repeat;
+      box-shadow: var(--shadow)
+    }
+
+    .cta h2 {
+      font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.055em;
+      margin: 0 0 .9rem
+    }
+
+    .cta p {
+      max-width: 650px;
+      color: rgba(248, 243, 233, .84);
+      line-height: 1.75;
+      margin-bottom: 1.35rem
+    }
+
+    .footer {
+      padding: 3.2rem 0;
+      border-top: 1px solid rgba(212, 175, 55, .14);
+      background: #050505;
+      color: var(--muted)
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .7fr;
+      gap: 2rem
+    }
+
+    .footer h3 {
+      color: var(--gold-light);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 1rem;
+      margin-bottom: .9rem
+    }
+
+    .footer a {
+      display: block;
+      color: var(--muted);
+      margin: .35rem 0
+    }
+
+    .footer a:hover {
+      color: var(--gold-light)
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(212, 175, 55, .12)
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: .7s
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    @media(max-width:991px) {
+      .va-nav .navbar-collapse {
+        margin-top: .8rem;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: rgba(5, 5, 5, .96)
+      }
+
+      .va-nav .nav-link {
+        margin-left: 0;
+        padding: .7rem 0
+      }
+
+      .spotlight,
+      .about {
+        grid-template-columns: 1fr
+      }
+
+      .grid-3,
+      .proof-strip,
+      .collector-strip,
+      .footer-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:680px) {
+      .container {
+        padding-left: 18px;
+        padding-right: 18px
+      }
+
+      .va-brand {
+        font-size: .84rem;
+        letter-spacing: .13em
+      }
+
+      .hero {
+        min-height: 94vh;
+        background-position: center
+      }
+
+      .hero-inner {
+        padding: 7.8rem 0 5rem
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 15vw, 4.7rem)
+      }
+
+      .hero-title span {
+        font-size: .66em
+      }
+
+      .hero-copy {
+        font-size: 1rem
+      }
+
+      .btn-va {
+        width: 100%
+      }
+
+      .section {
+        padding: 4.4rem 0
+      }
+
+      .spotlight,
+      .grid-3,
+      .proof-strip,
+      .collector-strip,
+      .footer-grid {
+        grid-template-columns: 1fr
+      }
+
+      .card-art.large,
+      .card-art,
+      .category-card {
+        min-height: 360px
+      }
+
+      .spotlight-side .card-art {
+        min-height: 330px
+      }
+
+      .artist-frame {
+        min-height: 360px
+      }
+
+      .cta {
+        padding: 2.8rem 1.25rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top va-nav">
+    <div class="container"><a class="navbar-brand va-brand" href="./index.html">Vargas Arts</a><button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon-line"></span><span
+          class="navbar-toggler-icon-line"></span><span class="navbar-toggler-icon-line"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="./paintings.html">Paintings</a></li>
+          <li class="nav-item"><a class="nav-link" href="./digital_art.html">Digital Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="./drawings.html">Drawings</a></li>
+          <li class="nav-item"><a class="nav-link" href="./wall_murals.html">Murals</a></li>
+          <li class="nav-item"><a class="nav-link" href="./videos.html">Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sales.html">Art for Sale</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/ulises_vargas_arts/" target="_blank"
+              rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="eyebrow">Original art portfolio</div>
+        <h1 class="hero-title">Arts <span>by Ulises Vargas</span></h1>
+        <p class="hero-copy">A curated collection of original paintings, wildlife art, fantasy pieces, digital creations
+          and drawings.</p>
+        <p class="hero-meta">Original Artwork • Wildlife • Fantasy • Fine Art</p>
+        <p class="artist-signature"><strong>Ulises Vargas</strong> — Artist & Painter</p>
+        <div class="brush-wrap" aria-hidden="true"><svg class="brush-svg" viewBox="0 0 520 42" role="img">
+            <defs>
+              <linearGradient id="goldGradient" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#6f5520" />
+                <stop offset="36%" stop-color="#f3d979" />
+                <stop offset="72%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#fff1a8" />
+              </linearGradient>
+            </defs>
+            <path class="brush-line" d="M8 29 C 78 9, 150 9, 218 25 S 350 42, 512 10" />
+          </svg></div>
+        <div class="actions"><a class="btn-va btn-gold" href="./paintings.html">View Gallery</a><a
+            class="btn-va btn-outline" href="./sales.html">Art For Sale</a></div>
+      </div>
+    </div><a class="scroll-cue" href="#featured" aria-label="Explore featured artwork">↓</a>
+  </header>
+  <main>
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Featured Collection</div>
+          <h2 class="section-title">Wildlife, fantasy and imagination brought to life.</h2>
+          <p class="section-copy">Explore a selection of original paintings and digital artwork inspired by nature,
+            movement, emotion and storytelling.</p>
+        </div>
+        <div class="spotlight"><a class="card-art large reveal" href="./paintings.html"><img
+              src="./assets/img/paintings/Sunrise.jpg" alt="Sunrise painting by Ulises Vargas" loading="lazy">
+            <div class="card-info">
+              <div class="card-label">Featured Painting</div>
+              <h3 class="card-title">Sunrise</h3>
+              <p class="card-copy">A warm original painting from the Vargas Arts collection.</p>
+            </div>
+          </a>
+          <div class="spotlight-side"><a class="card-art reveal" href="./paintings.html"><img
+                src="./assets/img/paintings/Monarca.jpg" alt="Monarca painting by Ulises Vargas" loading="lazy">
+              <div class="card-info">
+                <div class="card-label">Paintings</div>
+                <h3 class="card-title">Monarca</h3>
+              </div>
+            </a><a class="card-art reveal" href="./digital_art.html"><img src="./assets/img/digital_art/Lightning.jpg"
+                alt="Lightning Owl digital artwork by Ulises Vargas" loading="lazy">
+              <div class="card-info">
+                <div class="card-label">Digital Art</div>
+                <h3 class="card-title">Lightning Owl</h3>
+              </div>
+            </a></div>
+        </div>
+      </div>
+    </section>
+    <section class="section alt" id="categories">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Explore Collections</div>
+          <h2 class="section-title">Browse the main galleries.</h2>
+          <p class="section-copy">Discover original paintings, digital art, drawings and mural work by Ulises Vargas.
+          </p>
+        </div>
+        <div class="grid-3"><a class="category-card reveal" href="./paintings.html"><img
+              src="./assets/img/paintings/GoldPanter.jpg" alt="Paintings gallery preview" loading="lazy">
+            <div class="card-info">
+              <div class="card-label">Gallery</div>
+              <h3 class="card-title">Paintings</h3>
+            </div>
+          </a><a class="category-card reveal" href="./digital_art.html"><img src="./assets/img/digital_art/BetaF.jpg"
+              alt="Digital art gallery preview" loading="lazy">
+            <div class="card-info">
+              <div class="card-label">Gallery</div>
+              <h3 class="card-title">Digital Art</h3>
+            </div>
+          </a><a class="category-card reveal" href="./drawings.html"><img src="./assets/img/drawings/Tiger.jpg"
+              alt="Drawings gallery preview" loading="lazy">
+            <div class="card-info">
+              <div class="card-label">Gallery</div>
+              <h3 class="card-title">Drawings</h3>
+            </div>
+          </a></div>
+        <div class="proof-strip reveal">
+          <div class="proof"><strong>Original Artwork</strong><span>Created directly by Ulises Vargas.</span></div>
+          <div class="proof"><strong>Wildlife & Fantasy</strong><span>Nature, imagination and dramatic visual
+              storytelling.</span></div>
+          <div class="proof"><strong>Traditional + Digital</strong><span>Paintings, drawings and digital artwork in one
+              portfolio.</span></div>
+          <div class="proof"><strong>Gainesville, Florida</strong><span>Artwork presented from the artist's current
+              Florida location.</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="about-preview">
+      <div class="container">
+        <div class="about">
+          <div class="artist-frame reveal" aria-label="Ulises Vargas artist portrait"></div>
+          <div class="reveal">
+            <div class="kicker">About the Artist</div>
+            <h2 class="section-title">Art shaped by imagination, nature and emotion.</h2>
+            <p class="section-copy">Ulises Vargas creates original paintings, drawings and digital artwork inspired by
+              wildlife, fantasy and the natural world. His work focuses on emotion, movement, color and storytelling.
+            </p>
+            <p class="quote-box">Every artwork begins with an idea, a feeling or a moment of inspiration transformed
+              into a visual story.</p>
+            <div class="actions" style="margin-top:1.5rem"><a class="btn-va btn-gold" href="./about.html">Read
+                More</a><a class="btn-va btn-outline" href="./contact.html">Contact Artist</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section alt" id="collector-trust">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">For Collectors</div>
+          <h2 class="section-title">Original works, handled with care.</h2>
+          <p class="section-copy">Selected pieces are presented with clear information and direct contact with the
+            artist.</p>
+        </div>
+        <div class="collector-strip reveal">
+          <div class="collector-card"><strong>Original Artwork</strong><span>One-of-a-kind work created by Ulises
+              Vargas.</span></div>
+          <div class="collector-card"><strong>Certificate Ready</strong><span>Original pieces can include artist
+              documentation.</span></div>
+          <div class="collector-card"><strong>Careful Packaging</strong><span>Artwork is prepared with protection in
+              mind.</span></div>
+          <div class="collector-card"><strong>Direct Contact</strong><span>Questions go directly through Vargas
+              Arts.</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="sale-preview">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="kicker">Available Work</div>
+          <h2>Original art for collectors.</h2>
+          <p>A curated selection of original artwork is available for collectors seeking unique wildlife, fantasy and
+            nature-inspired pieces.</p>
+          <div class="actions"><a class="btn-va btn-gold" href="./sales.html">View Art For Sale</a><a
+              class="btn-va btn-outline" href="./paintings.html">Explore Paintings</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Arts by Ulises Vargas</h3>
+          <p>Original paintings, digital artwork, drawings and murals created by Ulises Vargas in Gainesville, Florida.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3><a href="./paintings.html">Original Paintings</a><a href="./digital_art.html">Digital
+            Art</a><a href="./drawings.html">Drawings</a><a href="./wall_murals.html">Murals</a><a
+            href="./videos.html">Videos</a><a href="./sales.html">Art For Sale</a>
+        </div>
+        <div>
+          <h3>Connect</h3><a href="./about.html">About the Artist</a><a href="./contact.html">Contact</a><a
+            href="https://www.instagram.com/ulises_vargas_arts/" target="_blank" rel="noopener">Instagram</a><a
+            href="https://www.youtube.com/user/varzacaportescu" target="_blank" rel="noopener">YouTube</a><a
+            href="https://www.tiktok.com/@ulis35" target="_blank" rel="noopener">TikTok</a>
+          <h3>Legal</h3><a href="./privacy.html">Privacy Policy</a><a href="./terms.html">Terms of Use</a><a
+            href="./copyright.html">Copyright</a><a href="./accessibility.html">Accessibility</a>
+        </div>
+      </div>
+      <div class="copyright">© Arts by Ulises Vargas. Gainesville, Florida.</div>
+    </div>
+  </footer>
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>const revealItems = document.querySelectorAll('.reveal'); const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target) } }) }, { threshold: .15 }); revealItems.forEach(item => observer.observe(item));</script>
+</body>
+
+</html>

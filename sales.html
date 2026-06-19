@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- SEO START -->
+
+<title>Art For Sale by Ulises Vargas | Vargas Arts</title>
+
+<meta name="description"
+      content="Original artwork for sale by Ulises Vargas, including handmade paintings and collector pieces available through secure checkout.">
+
+<link rel="canonical"
+      href="https://vargasarts.com/sales.html">
+
+<meta property="og:url"
+      content="https://vargasarts.com/sales.html">
+
+<meta property="og:title"
+      content="Art For Sale by Ulises Vargas">
+
+<meta property="og:description"
+      content="Browse original artwork available for purchase from artist Ulises Vargas.">
+
+<meta property="og:image"
+      content="https://vargasarts.com/assets/img/paintings/ForbiddenNectar.jpg">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:site_name"
+      content="Vargas Arts">
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Art For Sale by Ulises Vargas">
+
+<meta name="twitter:description"
+      content="Browse original artwork available for purchase from artist Ulises Vargas.">
+
+<meta name="twitter:image"
+      content="https://vargasarts.com/assets/img/paintings/ForbiddenNectar.jpg">
+
+<!-- SEO END -->
+  <link rel="shortcut icon" type="image/png" href="./assets/img/Yofabicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/vargas-nav.css?v=nav-system-6">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold2: #f3d979;
+      --white: #f8f3e9;
+      --muted: #b9b1a3;
+      --line: rgba(212, 175, 55, .28)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: Montserrat, Arial, sans-serif;
+      background: #050505;
+      color: var(--white);
+      overflow-x: hidden
+    }
+
+    a {
+      text-decoration: none !important
+    }
+
+    .container {
+      max-width: 1180px
+    }
+
+    .navx {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(5, 5, 5, .94);
+      border-bottom: 1px solid rgba(212, 175, 55, .18);
+      padding: .95rem 0
+    }
+
+    .brand {
+      color: var(--gold2) !important;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase
+    }
+
+    .navx .nav-link {
+      color: #eee !important;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase
+    }
+
+    .navx .active,
+    .navx .nav-link:hover {
+      color: var(--gold2) !important
+    }
+
+    .navbar-toggler {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .45rem .65rem
+    }
+
+    .bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--gold2);
+      margin: 4px 0
+    }
+
+    .hero {
+      min-height: 62vh;
+      display: flex;
+      align-items: end;
+      padding: 8.5rem 0 4.5rem;
+      background: linear-gradient(90deg, rgba(0, 0, 0, .96), rgba(0, 0, 0, .76), rgba(0, 0, 0, .33)), url('./assets/img/paintings/ForbiddenNectar.jpg') center right/cover no-repeat
+    }
+
+    .eyebrow,
+    .kicker {
+      color: var(--gold2);
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      margin-bottom: .8rem
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+      margin: 0;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, .76)
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: rgba(248, 243, 233, .9);
+      font-size: 1.08rem;
+      line-height: 1.75;
+      margin: 1rem 0 0
+    }
+
+    .meta {
+      color: var(--gold2);
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      font-size: .82rem;
+      margin-top: 1rem;
+      line-height: 1.6
+    }
+
+    .section {
+      padding: 5rem 0
+    }
+
+    .intro {
+      max-width: 850px;
+      margin-bottom: 2.2rem
+    }
+
+    .intro h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.02;
+      font-weight: 900;
+      letter-spacing: -.055em;
+      margin: 0 0 .9rem
+    }
+
+    .intro p {
+      color: var(--muted);
+      line-height: 1.8
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0 3rem
+    }
+
+    .trust div {
+      padding: 1.15rem;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .03)
+    }
+
+    .trust strong {
+      display: block;
+      color: var(--gold2);
+      margin-bottom: .25rem
+    }
+
+    .trust span {
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.15rem
+    }
+
+    .cardx {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .018));
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .5);
+      display: flex;
+      flex-direction: column
+    }
+
+    .art-img {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      cursor: pointer
+    }
+
+    .art-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .55s
+    }
+
+    .art-img:hover img {
+      transform: scale(1.06)
+    }
+
+    .content {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1
+    }
+
+    .content h3 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin: 0 0 .35rem
+    }
+
+    .price {
+      color: var(--gold2);
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin: .2rem 0
+    }
+
+    .details {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .9rem
+    }
+
+    .note {
+      color: rgba(248, 243, 233, .78);
+      font-size: .84rem
+    }
+
+    .buy {
+      margin-top: auto;
+      border: 0;
+      border-radius: 999px;
+      min-height: 46px;
+      padding: .75rem 1.1rem;
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      color: #080808;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: auto;
+      align-self: flex-start;
+      min-width: 150px;
+      white-space: nowrap;
+      line-height: 1
+    }
+
+    .buy:hover {
+      transform: translateY(-2px)
+    }
+
+    .footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(212, 175, 55, .14);
+      color: var(--muted)
+    }
+
+    .footgrid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .7fr;
+      gap: 2rem
+    }
+
+    .footer h3 {
+      color: var(--gold2);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 1rem
+    }
+
+    .footer a {
+      display: block;
+      color: var(--muted);
+      margin: .35rem 0
+    }
+
+    .modal-fix {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 46px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, .96)
+    }
+
+    .modal-content-fix {
+      position: relative;
+      margin: auto;
+      width: 92%;
+      max-width: 1180px
+    }
+
+    .close {
+      color: white;
+      position: absolute;
+      top: 14px;
+      right: 28px;
+      font-size: 42px;
+      z-index: 10000;
+      cursor: pointer
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    .pic-fit {
+      max-height: 82vh;
+      object-fit: contain;
+      background: #050505;
+      border-radius: 18px;
+      border: 1px solid var(--line)
+    }
+
+    .numbertext {
+      text-align: center;
+      color: var(--gold2);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .65rem 0 1rem
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 28px
+    }
+
+    .next {
+      right: 0
+    }
+
+    @media(max-width:1100px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:991px) {
+      .navbar-collapse {
+        margin-top: .8rem;
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #050505
+      }
+
+      .gallery,
+      .trust,
+      .footgrid {
+        grid-template-columns: 1fr
+      }
+
+      .intro h2 {
+        font-size: clamp(1.85rem, 8vw, 3rem)
+      }
+
+      .cardx {
+        max-width: 620px;
+        margin: 0 auto;
+        width: 100%
+      }
+
+      .art-img {
+        height: 430px
+      }
+    }
+
+    @media(max-width:760px) {
+      .container {
+        padding-left: 18px;
+        padding-right: 18px
+      }
+
+      .brand {
+        font-size: 1.62rem;
+        letter-spacing: .14em;
+        max-width: calc(100vw - 110px);
+        overflow: hidden
+      }
+
+      .navx {
+        padding: .8rem 0
+      }
+
+      .hero {
+        min-height: 70vh;
+        background-position: 74% center;
+        padding: 7.5rem 0 3.2rem
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 5.2rem);
+        max-width: 92vw
+      }
+
+      .hero p {
+        font-size: 1rem;
+        line-height: 1.62;
+        max-width: 96%
+      }
+
+      .section {
+        padding: 3.8rem 0
+      }
+
+      .gallery {
+        grid-template-columns: 1fr !important;
+        gap: 1.65rem
+      }
+
+      .cardx {
+        max-width: 100%;
+        border-radius: 26px
+      }
+
+      .art-img {
+        height: clamp(330px, 92vw, 520px)
+      }
+
+      .content {
+        padding: 1.35rem
+      }
+
+      .content h3 {
+        font-size: clamp(1.85rem, 10vw, 2.7rem);
+        line-height: 1.05
+      }
+
+      .price {
+        font-size: clamp(2rem, 10vw, 2.85rem);
+        line-height: 1.05;
+        margin: .55rem 0
+      }
+
+      .details,
+      .note {
+        font-size: 1.08rem;
+        line-height: 1.65
+      }
+
+      .buy {
+        width: auto !important;
+        align-self: flex-start !important;
+        min-width: 148px;
+        min-height: 44px;
+        padding: .78rem 1.25rem;
+        font-size: .78rem;
+        letter-spacing: .1em
+      }
+
+      .meta {
+        font-size: .72rem;
+        letter-spacing: .055em
+      }
+
+      .hero .diamond,
+      .hero .gold-blocks,
+      .hero .decorative-elements,
+      .hero:after {
+        display: none !important
+      }
+    }
+
+    @media(max-width:430px) {
+      .brand {
+        font-size: 1.34rem;
+        letter-spacing: .12em
+      }
+
+      .hero {
+        background-position: 78% center
+      }
+
+      .hero h1 {
+        font-size: clamp(2.85rem, 15vw, 4.45rem)
+      }
+
+      .art-img {
+        height: 360px
+      }
+
+      .content h3 {
+        font-size: 2.15rem
+      }
+
+      .price {
+        font-size: 2.25rem
+      }
+
+      .details,
+      .note {
+        font-size: 1rem
+      }
+
+      .buy {
+        min-width: 140px;
+        padding: .76rem 1.15rem
+      }
+    }
+  </style>
+  <style id="sales-mobile-lock">
+    body .hero,
+    body .hero * {
+      background-image: none !important;
+      box-shadow: none !important;
+    }
+
+    body .hero {
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, .96), rgba(0, 0, 0, .76), rgba(0, 0, 0, .33)), url('./assets/img/paintings/ForbiddenNectar.jpg') !important;
+      background-size: cover !important;
+      background-position: center right !important;
+      background-repeat: no-repeat !important;
+    }
+
+    body .hero::before,
+    body .hero::after,
+    body .hero .container::before,
+    body .hero .container::after,
+    body .hero .container>div::before,
+    body .hero .container>div::after,
+    body .hero h1::before,
+    body .hero h1::after,
+    body .hero p::before,
+    body .hero p::after,
+    body .hero .eyebrow::after,
+    body .hero .meta::before,
+    body .hero .meta::after {
+      content: none !important;
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    @media (max-width:1200px) {
+
+      html,
+      body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+
+      body .section>.container {
+        max-width: 680px !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+
+      body .gallery {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        grid-template-areas: none !important;
+        gap: 1.65rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+      }
+
+      body .gallery>article.cardx,
+      body .gallery>.cardx {
+        display: flex !important;
+        width: 100% !important;
+        max-width: 620px !important;
+        min-width: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        grid-column: 1/-1 !important;
+        flex: 0 0 auto !important;
+      }
+
+      body .cardx .content {
+        overflow: hidden !important;
+      }
+
+      body .cardx .content h3,
+      body .cardx .price {
+        max-width: 100% !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+      }
+
+      body .cardx .buy {
+        width: auto !important;
+        max-width: max-content !important;
+        min-width: 140px !important;
+        align-self: flex-start !important;
+        border-radius: 999px !important;
+        padding: .78rem 1.25rem !important;
+        font-size: .78rem !important;
+      }
+
+      body .hero [class*="diamond"],
+      body .hero [class*="square"],
+      body .hero [class*="shape"],
+      body .hero [class*="decor"],
+      body .hero [class*="block"],
+      body .hero svg:not(.brush-svg) {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    }
+
+    @media (max-width:700px) {
+
+      body .gallery>article.cardx,
+      body .gallery>.cardx {
+        max-width: 100% !important;
+      }
+
+      body .art-img {
+        height: clamp(340px, 92vw, 500px) !important;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="./assets/css/vargas-modal.css">
+</head>
+
+<body oncontextmenu="return false;">
+  <nav class="navbar navbar-expand-lg navx">
+    <div class="container"><a class="navbar-brand brand" href="./index.html">Vargas Arts</a><button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="bar"></span><span class="bar"></span><span
+          class="bar"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./paintings.html">Paintings</a></li>
+          <li class="nav-item"><a class="nav-link" href="./digital_art.html">Digital Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="./drawings.html">Drawings</a></li>
+          <li class="nav-item"><a class="nav-link" href="./wall_murals.html">Murals</a></li>
+          <li class="nav-item"><a class="nav-link" href="./videos.html">Videos</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="./sales.html">Art for Sale</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="container">
+      <div>
+        <div class="eyebrow">Available originals</div>
+        <h1>Art For Sale</h1>
+        <p>Selected original handmade artwork by Ulises Vargas. These pieces are one-of-a-kind originals presented for
+          collectors through secure eBay checkout.</p>
+        <div class="meta">Original Paintings | One Available | Secure Purchase | U.S. Shipping</div>
+      </div>
+    </div>
+  </header>
+  <main class="section">
+    <div class="container">
+      <div class="intro">
+        <div class="kicker">Collector Selection</div>
+        <h2>Original artwork ready for a new home.</h2>
+        <p>Each available piece is created by Ulises Vargas and listed with size, medium, year, price and purchase link.
+          Secure purchases are processed through eBay. Shipping is currently available within the U.S.A.</p>
+      </div>
+      <div class="trust">
+        <div><strong>Original Artwork</strong><span>Each listed piece is handmade and one-of-a-kind.</span></div>
+        <div><strong>Secure Checkout</strong><span>Purchases are completed through eBay.</span></div>
+        <div><strong>Tracked Shipping</strong><span>Ships in 1-3 business days with tracking.</span></div>
+      </div>
+      <div class="gallery">
+        <article class="cardx">
+          <div class="art-img" onclick="openModal();currentSlide(4)"><img
+              src="./assets/img/paintings/ForbiddenNectar.jpg"
+              alt="Forbidden Nectar hummingbird oil painting by Ulises Vargas" loading="lazy"></div>
+          <div class="content">
+            <h3>Forbidden Nectar</h3>
+            <div class="price">$279.00</div>
+            <p class="details">Oil on canvas 20&quot;x16&quot; [2021].</p>
+            <p class="note">Original painting — one available</p><button class="buy"
+              onclick='window.location.href="https://www.ebay.com/itm/166715557410"'>Buy Now</button>
+          </div>
+        </article>
+        <article class="cardx">
+          <div class="art-img" onclick="openModal();currentSlide(2)"><img src="./assets/img/paintings/Sunrise.jpg"
+              alt="Sunrise original landscape oil painting by Ulises Vargas" loading="lazy"></div>
+          <div class="content">
+            <h3>Sunrise</h3>
+            <div class="price">$899.99</div>
+            <p class="details">Oil on canvas 30&quot;x45&quot; [2021].</p>
+            <p class="note">Original painting — one available</p><button class="buy"
+              onclick="window.location.href='https://www.ebay.com/itm/167507419142'">Buy Now</button>
+          </div>
+        </article>
+        <article class="cardx">
+          <div class="art-img" onclick="openModal();currentSlide(5)"><img src="./assets/img/paintings/Bettaff.jpg"
+              alt="Betta Fire Fish original painting by Ulises Vargas" loading="lazy"></div>
+          <div class="content">
+            <h3>Betta Fire Fish</h3>
+            <div class="price">$399.00</div>
+            <p class="details">Oil on canvas 16&quot;x20&quot; [2025].</p>
+            <p class="note">Original painting — one available</p><button class="buy"
+              onclick="window.location.href='https://www.ebay.com/itm/167607868103'">Buy Now</button>
+          </div>
+        </article>
+        <article class="cardx">
+          <div class="art-img" onclick="openModal();currentSlide(6)"><img src="./assets/img/paintings/Blueflowers.jpg"
+              alt="Blue Flowers original acrylic painting by Ulises Vargas" loading="lazy"></div>
+          <div class="content">
+            <h3>Blue Flowers</h3>
+            <div class="price">$99.00</div>
+            <p class="details">Acrylic on canvas 20&quot;x16&quot; [2025].</p>
+            <p class="note">Original painting — one available</p><button class="buy"
+              onclick="window.location.href='https://www.ebay.com/itm/167608014394'">Buy Now</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+  <div id="myModal-fix" class="modal-fix"><span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content-fix">
+      <div class="mySlides">
+        <div class="numbertext">WILDLIFE: &quot;ALPHA&quot; interior and exterior frame included</div><img
+          class="pic-fit" src="./assets/img/paintings/Framed.jpg" style="width:100%">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">&quot;Sunrise&quot; with interior wood frame included</div><img class="pic-fit"
+          src="./assets/img/paintings/Sunrise.jpg" style="width:100%">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">&quot;Cloud Stories&quot; interior wood frame included</div><img class="pic-fit"
+          src="./assets/img/paintings/CloudStories.jpg" style="width:100%">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">&quot;Forbidden Nectar&quot; interior wood frame included</div><img class="pic-fit"
+          src="./assets/img/paintings/ForbiddenNectar.jpg" style="width:100%">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">&quot;Betta Fire Fish&quot; interior wood frame included</div><img class="pic-fit"
+          src="./assets/img/paintings/Bettaff.jpg" style="width:100%">
+      </div>
+      <div class="mySlides">
+        <div class="numbertext">&quot;Blue Flowers&quot; interior wood frame included</div><img class="pic-fit"
+          src="./assets/img/paintings/Blueflowers.jpg" style="width:100%">
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footgrid">
+        <div>
+          <h3>Arts by Ulises Vargas</h3>
+          <p>Original paintings, digital artwork, drawings and murals created by Ulises Vargas in Gainesville, Florida.
+          </p>
+        </div>
+        <div>
+          <h3>Explore</h3><a href="./index.html">Home</a><a href="./paintings.html">Paintings</a><a
+            href="./digital_art.html">Digital Art</a><a href="./drawings.html">Drawings</a><a
+            href="./wall_murals.html">Murals</a>
+        </div>
+        <div>
+          <h3>Connect</h3><a href="./contact.html">Contact</a><a href="./about.html">About the Artist</a><a
+            href="https://www.instagram.com/ulises_vargas_arts/" target="_blank" rel="noopener">Instagram</a>
+          <h3>Legal</h3><a href="./privacy.html">Privacy Policy</a><a href="./terms.html">Terms of Use</a><a
+            href="./copyright.html">Copyright</a><a href="./accessibility.html">Accessibility</a>
+        </div>
+      </div>
+      <p>© Arts by Ulises Vargas. Gainesville, Florida.</p>
+    </div>
+  </footer>
+  <script src="./assets/js/modalpic.js"></script>
+  <script src="./assets/js/no_right.js"></script>
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script>
+    (function () {
+      function cleanSalesMobile() {
+        var hero = document.querySelector('.hero');
+        if (hero) {
+          hero.querySelectorAll('*').forEach(function (el) {
+            var cs = getComputedStyle(el), r = el.getBoundingClientRect();
+            var gold = (cs.backgroundColor || '').includes('212') || (cs.color || '').includes('212');
+            if (gold && r.width > 8 && r.width < 90 && r.height > 8 && r.height < 90 && !el.classList.contains('eyebrow')) { el.style.display = 'none'; }
+          });
+        }
+        if (window.innerWidth <= 1200) {
+          var gallery = document.querySelector('.gallery');
+          if (gallery) { gallery.style.display = 'flex'; gallery.style.flexDirection = 'column'; gallery.style.gridTemplateColumns = 'none'; gallery.style.gap = '1.65rem'; gallery.style.width = '100%'; }
+          document.querySelectorAll('.gallery > .cardx').forEach(function (card) { card.style.width = '100%'; card.style.maxWidth = window.innerWidth <= 700 ? '100%' : '620px'; card.style.marginLeft = 'auto'; card.style.marginRight = 'auto'; });
+        }
+      }
+      document.addEventListener('DOMContentLoaded', cleanSalesMobile);
+      window.addEventListener('resize', cleanSalesMobile);
+    })();
+  </script>
+</body>
+
+</html>
