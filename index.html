@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0a0806" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
 
-  <!-- SEO START -->
   <title>Vargas Arts | Original Artwork by Ulises Vargas</title>
   <meta name="description"
     content="Original paintings, drawings, digital art and murals by artist Ulises Vargas. Explore wildlife, fantasy and fine art creations inspired by nature, imagination and emotion.">
@@ -26,1273 +25,1312 @@
   <meta name="twitter:description"
     content="Original paintings, drawings, digital art and murals by artist Ulises Vargas.">
   <meta name="twitter:image" content="https://vargasarts.com/assets/img/paintings/Sunrise.jpg">
-  <!-- SEO END -->
 
   <link rel="shortcut icon" type="image/png" href="./assets/img/Yofabicon.png">
-
-  <!-- Preload hero image for instant cinematic feel -->
-  <link rel="preload" as="image" href="./assets/img/paintings/CloudStories.jpg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Big+Shoulders+Display:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="./assets/css/vargas-nav.css?v=nav-system-6">
+  <link rel="preload" as="image" href="./assets/img/paintings/Sunrise.jpg">
 
   <style>
-    /* ========= TOKENS ========= */
     :root {
-      --ink: #07060a;
-      --ink-2: #0d0b0e;
-      --ink-3: #161217;
-      --bone: #efe6d4;
-      --bone-soft: #d6cbb6;
-      --muted: #8a8275;
-      --gold: #d4af37;
-      --gold-light: #efd58a;
-      --gold-deep: #8e6f1f;
-      --border: rgba(212, 175, 55, .22);
-      --border-soft: rgba(239, 230, 212, .08);
-      --shadow-lg: 0 40px 100px rgba(0, 0, 0, .65);
-      --shadow-md: 0 20px 60px rgba(0, 0, 0, .45);
-      --display: "Cormorant Garamond", "Times New Roman", serif;
-      --label: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
-      --body: Montserrat, system-ui, sans-serif;
+      --black: #050505;
+      --charcoal: #0b0a08;
+      --panel: #12100d;
+      --panel-2: #17130d;
+      --bone: #f1e7d4;
+      --bone-dim: rgba(241, 231, 212, .72);
+      --bone-faint: rgba(241, 231, 212, .48);
+      --gold: #D4AF37;
+      --gold-light: #f3d981;
+      --gold-deep: #7f651a;
+      --border: rgba(212, 175, 55, .28);
+      --border-soft: rgba(241, 231, 212, .12);
+      --shadow: 0 34px 110px rgba(0, 0, 0, .72);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Montserrat, Arial, sans-serif;
+      --progress: 0;
+      --hero-y: 0px;
+      --hero-scale: 1.08;
+      --stage-y: 0px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      background: var(--black);
+    }
 
     body {
       margin: 0;
-      font-family: var(--body);
+      min-width: 320px;
       color: var(--bone);
-      background: var(--ink);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(212, 175, 55, .12), transparent 28rem),
+        radial-gradient(circle at 82% 22%, rgba(70, 92, 80, .18), transparent 32rem),
+        var(--black);
+      font-family: var(--sans);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
-    a { text-decoration: none !important; color: inherit; }
-    img { display: block; max-width: 100%; }
-
-    .container { max-width: 1240px; }
-
-    /* Grain texture overlay – adds film/cinematic feel */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
+      z-index: 80;
       pointer-events: none;
-      z-index: 9999;
-      mix-blend-mode: overlay;
-      opacity: .06;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.7'/></svg>");
+      opacity: .075;
+      mix-blend-mode: screen;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
     }
 
-    /* ::selection */
-    ::selection { background: var(--gold); color: #0b0a08; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* ========= NAV ========= */
-    .va-nav {
-      background: rgba(10, 8, 10, .55) !important;
-      backdrop-filter: saturate(140%) blur(22px);
-      -webkit-backdrop-filter: saturate(140%) blur(22px);
-      border-bottom: 1px solid var(--border-soft);
-      padding: 1rem 0;
-      transition: background .4s ease, border-color .4s ease;
+    img {
+      display: block;
+      max-width: 100%;
     }
-    .va-nav.is-scrolled {
-      background: rgba(10, 8, 10, .92) !important;
-      border-bottom-color: var(--border);
+
+    .container {
+      width: min(100% - 48px, 1220px);
+      margin-inline: auto;
     }
-    .va-brand {
-      color: var(--bone) !important;
-      font-family: var(--display);
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-size: 1.18rem;
-      white-space: nowrap;
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 120;
+      width: calc(var(--progress) * 100%);
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-light));
+      box-shadow: 0 0 22px rgba(212, 175, 55, .52);
+      transform-origin: left center;
     }
-    .va-brand em {
-      color: var(--gold-light);
-      font-style: italic;
-      font-weight: 500;
-      letter-spacing: 0;
+
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(241, 231, 212, .08);
+      background: rgba(5, 5, 5, .42);
+      backdrop-filter: blur(18px) saturate(130%);
+      -webkit-backdrop-filter: blur(18px) saturate(130%);
+      transition: background .35s ease, border-color .35s ease;
     }
-    .va-nav .nav-link {
-      color: rgba(239, 230, 212, .82) !important;
-      font-family: var(--label);
-      font-size: .92rem;
-      font-weight: 700;
+
+    .site-nav.is-scrolled {
+      background: rgba(5, 5, 5, .88);
+      border-bottom-color: rgba(212, 175, 55, .22);
+    }
+
+    .nav-shell {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-size: 1.12rem;
       letter-spacing: .14em;
       text-transform: uppercase;
-      margin-left: .15rem;
-      position: relative;
-      padding: .6rem .9rem !important;
-      transition: color .25s;
+      white-space: nowrap;
     }
-    .va-nav .nav-link::after {
+
+    .brand span {
+      color: var(--gold-light);
+      font-style: italic;
+      letter-spacing: .03em;
+      text-transform: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, .08);
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle::before,
+    .nav-toggle::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      background: currentColor;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .nav-toggle[aria-expanded="true"] span {
+      opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"]::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded="true"]::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      padding: 13px 10px;
+      color: rgba(241, 231, 212, .78);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color .25s ease;
+    }
+
+    .nav-links a::after {
       content: "";
       position: absolute;
-      left: 50%;
-      bottom: .35rem;
-      width: 0;
+      left: 10px;
+      right: 10px;
+      bottom: 8px;
       height: 1px;
       background: var(--gold-light);
-      transition: width .3s ease, left .3s ease;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .28s ease;
     }
-    .va-nav .nav-link:hover { color: var(--gold-light) !important; }
-    .va-nav .nav-link:hover::after { width: 60%; left: 20%; }
-    .navbar-toggler {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: .45rem .65rem;
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold-light);
     }
-    .navbar-toggler-icon-line {
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      overflow: hidden;
+      background: #050505;
+    }
+
+    .hero-art {
+      position: absolute;
+      inset: -7% -4% -3%;
+      z-index: -4;
+      background: url("./assets/img/paintings/Sunrise.jpg") center 42% / cover no-repeat;
+      transform: translate3d(0, var(--hero-y), 0) scale(var(--hero-scale));
+      will-change: transform;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 70% 28%, rgba(212, 175, 55, .18), transparent 32rem),
+        linear-gradient(90deg, rgba(5, 5, 5, .86) 0%, rgba(5, 5, 5, .38) 46%, rgba(5, 5, 5, .72) 100%),
+        linear-gradient(180deg, rgba(5, 5, 5, .38) 0%, rgba(5, 5, 5, .2) 36%, #050505 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(105deg, transparent 0 38%, rgba(243, 217, 129, .22) 46%, transparent 54% 100%);
+      transform: translateX(-70%);
+      animation: lightSweep 8.5s ease-in-out 1.2s infinite;
+      mix-blend-mode: screen;
+      opacity: .7;
+    }
+
+    @keyframes lightSweep {
+      0%, 46% {
+        transform: translateX(-75%);
+      }
+
+      68%, 100% {
+        transform: translateX(75%);
+      }
+    }
+
+    .hero-inner {
+      width: min(100% - 48px, 1220px);
+      margin-inline: auto;
+      padding: 154px 0 88px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--gold-light);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .28em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .hero h1 {
+      max-width: 1050px;
+      margin: 24px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(4.7rem, 15vw, 13.5rem);
+      font-weight: 500;
+      line-height: .78;
+      letter-spacing: 0;
+      text-shadow: 0 28px 90px rgba(0, 0, 0, .72);
+    }
+
+    .hero h1 span {
       display: block;
-      width: 22px;
-      height: 2px;
-      margin: 4px 0;
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .intro-line {
+      max-width: 760px;
+      margin: 30px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.6vw, 2.25rem);
+      font-style: italic;
+      line-height: 1.32;
+      color: rgba(241, 231, 212, .92);
+    }
+
+    .intro-copy {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--bone-dim);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .stagger {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: introUp .85s cubic-bezier(.2, .85, .2, 1) forwards;
+    }
+
+    .stagger.d1 {
+      animation-delay: .16s;
+    }
+
+    .stagger.d2 {
+      animation-delay: .32s;
+    }
+
+    .stagger.d3 {
+      animation-delay: .48s;
+    }
+
+    .stagger.d4 {
+      animation-delay: .64s;
+    }
+
+    @keyframes introUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 15px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      line-height: 1.2;
+      text-transform: uppercase;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease, color .3s ease;
+    }
+
+    .button.gold {
+      color: #080704;
+      background: linear-gradient(135deg, #fff0a9, var(--gold), #a98220);
+      box-shadow: 0 18px 55px rgba(212, 175, 55, .32);
+    }
+
+    .button.ghost {
+      color: var(--bone);
+      border-color: rgba(241, 231, 212, .34);
+      background: rgba(5, 5, 5, .34);
+      backdrop-filter: blur(10px);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-3px);
+    }
+
+    .button.gold:hover,
+    .button.gold:focus-visible {
+      box-shadow: 0 26px 70px rgba(212, 175, 55, .46);
+    }
+
+    .button.ghost:hover,
+    .button.ghost:focus-visible {
+      color: #080704;
+      border-color: var(--gold-light);
       background: var(--gold-light);
     }
 
-    /* ========= HERO ========= */
-    .hero {
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      color: rgba(241, 231, 212, .72);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+    }
+
+    .scroll-cue span {
+      width: 1px;
+      height: 42px;
+      background: linear-gradient(var(--gold-light), transparent);
+      animation: cuePulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes cuePulse {
+      50% {
+        transform: scaleY(.45);
+        opacity: .55;
+      }
+    }
+
+    .section {
       position: relative;
+      padding: 112px 0;
+    }
+
+    .section-heading {
+      max-width: 900px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .section-heading h2,
+    .final-cta h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 7vw, 6.7rem);
+      font-weight: 500;
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .section-heading em,
+    .final-cta em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .section-copy {
+      max-width: 650px;
+      margin: 22px 0 0;
+      color: var(--bone-dim);
+      font-size: 1.03rem;
+      line-height: 1.85;
+    }
+
+    .chapters {
       min-height: 100vh;
+      padding: 94px 0 120px;
+      background:
+        linear-gradient(180deg, var(--black), rgba(18, 16, 13, .92) 46%, var(--black)),
+        radial-gradient(circle at 25% 50%, rgba(212, 175, 55, .11), transparent 34rem);
+    }
+
+    .chapter-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(340px, .86fr);
+      gap: clamp(36px, 6vw, 78px);
+      align-items: start;
+    }
+
+    .visual-stage {
+      position: sticky;
+      top: 104px;
+      min-height: calc(100vh - 138px);
+      display: grid;
+      place-items: center;
+      transform: translateY(var(--stage-y));
+    }
+
+    .stage-frame {
+      position: relative;
+      width: min(100%, 700px);
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--border);
+      background: #080705;
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, .04);
       overflow: hidden;
+    }
+
+    .stage-frame::before,
+    .stage-frame::after {
+      content: "";
+      position: absolute;
+      z-index: 7;
+      pointer-events: none;
+    }
+
+    .stage-frame::before {
+      inset: 18px;
+      border: 1px solid rgba(212, 175, 55, .2);
+    }
+
+    .stage-frame::after {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      background: linear-gradient(transparent, rgba(5, 5, 5, .92));
+    }
+
+    .stage-image {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.1);
+      transition: opacity .8s ease, transform 1.15s cubic-bezier(.2, .75, .2, 1);
+    }
+
+    .stage-image.is-active {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+
+    .stage-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.98) contrast(1.06);
+    }
+
+    .stage-label {
+      position: absolute;
+      left: 30px;
+      right: 30px;
+      bottom: 28px;
+      z-index: 9;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: rgba(241, 231, 212, .9);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .22em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .chapter-copy {
+      display: grid;
+      gap: 34px;
+      padding: 3vh 0;
+    }
+
+    .chapter {
+      min-height: 82vh;
+      display: grid;
+      align-content: center;
+      padding: 48px 0 48px 28px;
+      border-left: 1px solid rgba(241, 231, 212, .13);
+      opacity: .42;
+      transition: opacity .45s ease, border-color .45s ease, transform .45s ease;
+    }
+
+    .chapter.is-active {
+      opacity: 1;
+      border-left-color: var(--gold);
+      transform: translateX(8px);
+    }
+
+    .chapter-number {
+      color: var(--gold-light);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+    }
+
+    .chapter h2 {
+      margin: 16px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(2.75rem, 5.8vw, 6.4rem);
+      font-weight: 500;
+      line-height: .9;
+      letter-spacing: 0;
+    }
+
+    .chapter h2 em {
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .chapter p {
+      max-width: 520px;
+      margin: 22px 0 0;
+      color: var(--bone-dim);
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .chapter-link {
+      width: max-content;
+      margin-top: 28px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(212, 175, 55, .62);
+      color: var(--gold-light);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .portal-section {
+      background:
+        radial-gradient(circle at 78% 16%, rgba(212, 175, 55, .12), transparent 30rem),
+        linear-gradient(180deg, #050505, #100f0c 48%, #050505);
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .portal-card {
+      position: relative;
+      min-height: 430px;
       display: flex;
       align-items: flex-end;
-      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, .24);
+      background: #111;
+      box-shadow: 0 22px 80px rgba(0, 0, 0, .36);
+      transition: transform .38s ease, border-color .38s ease, box-shadow .38s ease;
     }
-    .hero-stage {
+
+    .portal-card:nth-child(2),
+    .portal-card:nth-child(5) {
+      transform: translateY(34px);
+    }
+
+    .portal-card img {
       position: absolute;
-      inset: -6% -2% -2% -2%;
-      z-index: 0;
-      background: url('./assets/img/paintings/CloudStories.jpg') center 35% / cover no-repeat;
-      transform: scale(1.08);
-      animation: kenBurns 22s ease-in-out infinite alternate;
-      will-change: transform;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform .9s cubic-bezier(.2, .75, .2, 1), filter .5s ease;
+      filter: saturate(.92) contrast(1.04);
     }
-    @keyframes kenBurns {
-      0%   { transform: scale(1.08) translate3d(0, 0, 0); }
-      100% { transform: scale(1.18) translate3d(-1.5%, -1.5%, 0); }
-    }
-    .hero-veil {
+
+    .portal-card::before {
+      content: "";
       position: absolute;
       inset: 0;
       z-index: 1;
       background:
-        radial-gradient(120% 80% at 80% 20%, rgba(212, 175, 55, .14), transparent 55%),
-        linear-gradient(180deg, rgba(7, 6, 10, .55) 0%, rgba(7, 6, 10, .25) 35%, rgba(7, 6, 10, .85) 78%, rgba(7, 6, 10, 1) 100%),
-        linear-gradient(90deg, rgba(7, 6, 10, .65), rgba(7, 6, 10, 0));
-      pointer-events: none;
-    }
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background-image:
-        linear-gradient(rgba(239, 230, 212, .04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(239, 230, 212, .04) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: linear-gradient(180deg, transparent 0, #000 30%, #000 75%, transparent);
-      -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 30%, #000 75%, transparent);
-      opacity: .35;
-      pointer-events: none;
+        linear-gradient(180deg, rgba(5, 5, 5, .04) 0%, rgba(5, 5, 5, .35) 42%, rgba(5, 5, 5, .95) 100%),
+        radial-gradient(circle at 50% 86%, rgba(212, 175, 55, .16), transparent 42%);
     }
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 8.5rem 0 6rem;
-    }
-    .hero-meta-row {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.4rem;
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .65rem;
-      padding: .42rem .9rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(7, 6, 10, .55);
-      backdrop-filter: blur(8px);
-      font-family: var(--label);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .hero-tag .dot {
-      width: 6px; height: 6px; border-radius: 999px;
-      background: var(--gold-light);
-      box-shadow: 0 0 0 4px rgba(239, 213, 138, .18);
-      animation: pulse 2.4s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(.7); opacity: .6; }
-    }
-    .hero-loc {
-      font-family: var(--label);
-      font-size: .78rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: rgba(239, 230, 212, .55);
-    }
-
-    .hero-title {
-      margin: 0;
-      font-family: var(--display);
-      font-weight: 500;
-      font-size: clamp(3.6rem, 13.5vw, 12rem);
-      line-height: .86;
-      letter-spacing: -.02em;
-      color: var(--bone);
-      text-shadow: 0 30px 80px rgba(0, 0, 0, .55);
-    }
-    .hero-title .line {
-      display: block;
-      overflow: hidden;
-    }
-    .hero-title .line span {
-      display: inline-block;
-      transform: translateY(110%);
-      animation: lineUp 1.1s cubic-bezier(.22, 1, .36, 1) forwards;
-    }
-    .hero-title .line.l2 span { animation-delay: .15s; }
-    .hero-title .arts {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--gold-light);
-      letter-spacing: -.01em;
-    }
-    @keyframes lineUp { to { transform: translateY(0); } }
-
-    .hero-sub {
-      max-width: 620px;
-      margin: 1.6rem 0 0;
-      font-family: var(--display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.1rem, 2.1vw, 1.55rem);
-      line-height: 1.5;
-      color: rgba(239, 230, 212, .92);
-      opacity: 0;
-      animation: fadeUp .9s ease .65s forwards;
-    }
-    .hero-copy {
-      max-width: 540px;
-      margin: 1.1rem 0 0;
-      color: rgba(239, 230, 212, .72);
-      font-size: 1rem;
-      line-height: 1.7;
-      font-weight: 400;
-      opacity: 0;
-      animation: fadeUp .9s ease .85s forwards;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2.2rem;
-      opacity: 0;
-      animation: fadeUp .9s ease 1.05s forwards;
-    }
-    .btn-va {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: .6rem;
-      min-height: 56px;
-      padding: 1rem 1.7rem;
-      font-family: var(--label);
-      font-size: .92rem;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .35s cubic-bezier(.22, 1, .36, 1), color .25s, box-shadow .35s, border-color .25s, background .25s;
-      will-change: transform;
-    }
-    .btn-gold {
-      color: #0c0a06;
-      background: linear-gradient(135deg, #f6e6a8 0%, var(--gold) 55%, var(--gold-deep) 100%);
-      box-shadow: 0 18px 50px rgba(212, 175, 55, .25), inset 0 0 0 1px rgba(255, 240, 180, .35);
-    }
-    .btn-gold:hover {
-      transform: translateY(-4px);
-      color: #0c0a06;
-      box-shadow: 0 28px 60px rgba(212, 175, 55, .38), inset 0 0 0 1px rgba(255, 240, 180, .55);
-    }
-    .btn-outline {
-      color: var(--bone);
-      border: 1px solid rgba(239, 230, 212, .35);
-      background: rgba(239, 230, 212, .04);
-      backdrop-filter: blur(8px);
-    }
-    .btn-outline:hover {
-      color: #0c0a06;
-      background: var(--gold-light);
-      border-color: var(--gold-light);
-      transform: translateY(-4px);
-    }
-    .btn-va .arr {
-      transition: transform .35s cubic-bezier(.22, 1, .36, 1);
-    }
-    .btn-va:hover .arr { transform: translateX(5px); }
-
-    .scroll-cue {
-      position: absolute;
-      z-index: 3;
-      left: 50%;
-      bottom: 32px;
-      transform: translateX(-50%);
-      color: var(--bone-soft);
-      font-family: var(--label);
-      font-size: .72rem;
-      letter-spacing: .35em;
-      text-transform: uppercase;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .65rem;
-      opacity: 0;
-      animation: fadeUp .9s ease 1.4s forwards;
-    }
-    .scroll-cue .line-v {
-      width: 1px;
-      height: 38px;
-      background: linear-gradient(180deg, var(--gold-light), transparent);
-      animation: lineMove 2.1s ease-in-out infinite;
-    }
-    @keyframes lineMove {
-      0%, 100% { transform: scaleY(.4); transform-origin: top; opacity: .6; }
-      50% { transform: scaleY(1); opacity: 1; }
-    }
-
-    /* ========= MARQUEE STRIP ========= */
-    .marquee {
-      position: relative;
-      z-index: 4;
-      margin-top: -1px;
-      padding: 1.4rem 0;
-      background: linear-gradient(90deg, #100c08, #1a1308 50%, #100c08);
-      border-top: 1px solid rgba(212, 175, 55, .22);
-      border-bottom: 1px solid rgba(212, 175, 55, .22);
-      overflow: hidden;
-    }
-    .marquee-track {
-      display: flex;
-      gap: 3.2rem;
-      width: max-content;
-      animation: marqueeScroll 38s linear infinite;
-    }
-    .marquee-track span {
-      font-family: var(--display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 3.2vw, 2.4rem);
-      color: rgba(239, 230, 212, .82);
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 3.2rem;
-    }
-    .marquee-track span::after {
-      content: "✦";
-      color: var(--gold);
-      font-size: .8em;
-      font-style: normal;
-    }
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* ========= SECTIONS ========= */
-    .section {
-      padding: 7.5rem 0;
-      position: relative;
-    }
-    .section.compact { padding: 5.5rem 0; }
-    .section.alt {
-      background: linear-gradient(180deg, var(--ink-2), var(--ink-3));
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .8rem;
-      font-family: var(--label);
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 1.2rem;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 36px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-    }
-    .eyebrow.center { justify-content: center; }
-    .eyebrow.center::after {
-      content: "";
-      width: 36px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold));
-    }
-
-    .section-title {
-      font-family: var(--display);
-      font-weight: 500;
-      font-size: clamp(2.4rem, 6vw, 5.2rem);
-      line-height: 1.02;
-      letter-spacing: -.02em;
-      margin: 0 0 1.2rem;
-      color: var(--bone);
-    }
-    .section-title em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--gold-light);
-    }
-    .section-copy {
-      max-width: 640px;
-      color: rgba(239, 230, 212, .68);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      font-weight: 400;
-      margin: 0;
-    }
-
-    .head-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .head-row .section-copy { max-width: 380px; }
-
-    /* ========= STORYTELLING SECTION ========= */
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .story-img {
-      position: relative;
-      border-radius: 2px;
-      overflow: hidden;
-      aspect-ratio: 4 / 5;
-      box-shadow: var(--shadow-lg);
-    }
-    .story-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      will-change: transform;
-      transition: transform 1.2s cubic-bezier(.22, 1, .36, 1);
-    }
-    .story-img:hover img { transform: scale(1.04); }
-    .story-img::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(212, 175, 55, .25);
-      pointer-events: none;
-    }
-    .story-img .frame-tag {
-      position: absolute;
-      bottom: 1.3rem;
-      left: 1.3rem;
-      right: 1.3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--label);
-      font-size: .78rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--bone);
-      mix-blend-mode: difference;
-    }
-
-    .quote-large {
-      font-family: var(--display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-      line-height: 1.5;
-      color: rgba(239, 230, 212, .92);
-      padding-left: 1.4rem;
-      border-left: 2px solid var(--gold);
-      margin: 2rem 0;
-    }
-    .signature {
-      font-family: var(--display);
-      font-style: italic;
-      color: var(--gold-light);
-      font-size: 1.2rem;
-      margin-top: 1.5rem;
-    }
-    .signature small {
-      display: block;
-      font-family: var(--label);
-      font-size: .76rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-style: normal;
-      margin-top: .3rem;
-    }
-
-    /* ========= CATEGORIES (asymmetric mosaic) ========= */
-    .cat-mosaic {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: 280px;
-      gap: 1.1rem;
-    }
-    .cat {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      border: 1px solid var(--border-soft);
-      background: #111;
-      transition: transform .55s cubic-bezier(.22, 1, .36, 1), border-color .35s;
-      will-change: transform;
-    }
-    .cat:hover { border-color: rgba(239, 213, 138, .55); }
-    .cat img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transform: scale(1.04);
-      transition: transform 1.1s cubic-bezier(.22, 1, .36, 1), filter .55s;
-      filter: saturate(.95) contrast(1.02);
-    }
-    .cat:hover img {
-      transform: scale(1.12);
-      filter: saturate(1.1) contrast(1.06);
-    }
-    .cat::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7, 6, 10, 0) 30%, rgba(7, 6, 10, .55) 65%, rgba(7, 6, 10, .92));
-      pointer-events: none;
-    }
-    .cat-info {
-      position: absolute;
-      z-index: 2;
-      left: 1.6rem;
-      right: 1.6rem;
-      bottom: 1.4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 1rem;
-    }
-    .cat-info .num {
-      font-family: var(--label);
-      font-size: .72rem;
-      letter-spacing: .3em;
-      color: var(--gold-light);
-      opacity: .85;
-    }
-    .cat-info h3 {
-      margin: .4rem 0 0;
-      font-family: var(--display);
-      font-weight: 500;
-      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-      letter-spacing: -.01em;
-      color: var(--bone);
-      line-height: 1;
-    }
-    .cat-info .go {
-      width: 44px; height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(239, 230, 212, .35);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--bone);
-      transition: background .3s, color .3s, border-color .3s, transform .35s;
-      flex-shrink: 0;
-    }
-    .cat:hover .cat-info .go {
-      background: var(--gold-light);
-      border-color: var(--gold-light);
-      color: #0c0a06;
-      transform: rotate(-45deg);
-    }
-    /* mosaic positions */
-    .cat.c-paintings  { grid-column: span 4; grid-row: span 2; }
-    .cat.c-digital    { grid-column: span 2; grid-row: span 1; }
-    .cat.c-drawings   { grid-column: span 2; grid-row: span 1; }
-    .cat.c-murals     { grid-column: span 3; grid-row: span 1; }
-    .cat.c-sales      { grid-column: span 3; grid-row: span 1; }
-
-    /* ========= CINEMATIC PANELS ========= */
-    .panels {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.4rem;
-    }
-    .panel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      min-height: 480px;
-      display: flex;
-      align-items: flex-end;
-      isolation: isolate;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-md);
-    }
-    .panel .bg {
-      position: absolute;
-      inset: -4%;
-      background-size: cover;
-      background-position: center;
-      transition: transform 1.4s cubic-bezier(.22, 1, .36, 1);
-      will-change: transform;
-      z-index: 0;
-    }
-    .panel:hover .bg { transform: scale(1.06); }
-    .panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7, 6, 10, .15) 0%, rgba(7, 6, 10, .55) 55%, rgba(7, 6, 10, .95) 100%);
-      z-index: 1;
-    }
-    .panel-content {
-      position: relative;
-      z-index: 2;
-      padding: 2.4rem 2.2rem;
-      max-width: 560px;
-    }
-    .panel-num {
-      font-family: var(--label);
-      font-size: .74rem;
-      letter-spacing: .3em;
-      color: var(--gold-light);
-      margin-bottom: .9rem;
-      text-transform: uppercase;
-    }
-    .panel h3 {
-      font-family: var(--display);
-      font-weight: 500;
-      font-size: clamp(2rem, 3.8vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -.015em;
-      margin: 0 0 .8rem;
-      color: var(--bone);
-    }
-    .panel h3 em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--gold-light);
-    }
-    .panel p {
-      color: rgba(239, 230, 212, .82);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin: 0 0 1.2rem;
-      max-width: 480px;
-    }
-    .panel-link {
-      display: inline-flex;
-      align-items: center;
-      gap: .7rem;
-      font-family: var(--label);
-      font-size: .85rem;
-      font-weight: 800;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      position: relative;
-      padding-bottom: .35rem;
-    }
-    .panel-link::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 100%; height: 1px;
-      background: var(--gold-light);
-      transform-origin: right;
-      transform: scaleX(.4);
-      transition: transform .45s cubic-bezier(.22, 1, .36, 1);
-    }
-    .panel-link:hover { color: var(--gold-light); }
-    .panel-link:hover::after { transform-origin: left; transform: scaleX(1); }
-
-    /* ========= ABOUT PREVIEW ========= */
-    .about-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .artist-frame {
-      position: relative;
-      aspect-ratio: 4 / 5;
-      background: linear-gradient(180deg, rgba(7, 6, 10, 0) 35%, rgba(7, 6, 10, .85)),
-        url('./assets/img/Ulises_Vargas.png') center top / cover no-repeat;
-      border-radius: 2px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-    }
-    .artist-frame::before {
+    .portal-card::after {
       content: "";
       position: absolute;
       inset: 12px;
-      border: 1px solid rgba(239, 213, 138, .25);
+      z-index: 2;
+      border: 1px solid rgba(212, 175, 55, .18);
       pointer-events: none;
-    }
-    .artist-tag {
-      position: absolute;
-      left: 1.4rem;
-      bottom: 1.3rem;
-      font-family: var(--label);
-      font-size: .8rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-    }
-    .artist-tag span {
-      display: block;
-      font-family: var(--display);
-      font-style: italic;
-      font-size: 1.4rem;
-      letter-spacing: 0;
-      text-transform: none;
-      color: var(--bone);
-      margin-top: .25rem;
+      transition: inset .38s ease, border-color .38s ease;
     }
 
-    /* ========= CTA ========= */
-    .cta-wrap {
+    .portal-content {
       position: relative;
-      padding: 6rem 3rem;
-      border-radius: 4px;
-      overflow: hidden;
-      isolation: isolate;
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .cta-wrap .bg {
-      position: absolute;
-      inset: -6%;
-      background: url('./assets/img/paintings/Mthood.jpg') center / cover no-repeat;
-      filter: brightness(.45) saturate(.85);
-      transform: scale(1.04);
-      transition: transform 8s ease;
-      z-index: -1;
-    }
-    .cta-wrap:hover .bg { transform: scale(1.1); }
-    .cta-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(60% 60% at 50% 50%, rgba(7, 6, 10, .15), rgba(7, 6, 10, .92));
-      z-index: -1;
-    }
-    .cta-wrap h2 {
-      font-family: var(--display);
-      font-weight: 500;
-      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
-      line-height: 1.05;
-      letter-spacing: -.02em;
-      margin: 0 auto 1.2rem;
-      max-width: 720px;
-      color: var(--bone);
-    }
-    .cta-wrap h2 em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--gold-light);
-    }
-    .cta-wrap p {
-      max-width: 600px;
-      margin: 0 auto 2.2rem;
-      color: rgba(239, 230, 212, .8);
-      font-size: 1.08rem;
-      line-height: 1.7;
-    }
-    .cta-actions {
-      display: inline-flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      z-index: 3;
+      padding: 28px;
+      transition: transform .38s ease;
     }
 
-    /* ========= FOOTER ========= */
-    .footer {
-      padding: 4rem 0 2.5rem;
-      border-top: 1px solid var(--border-soft);
-      background: #07060a;
-      color: var(--muted);
+    .portal-content span {
+      color: var(--gold-light);
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-transform: uppercase;
     }
+
+    .portal-content h3 {
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.4vw, 3.2rem);
+      font-weight: 500;
+      line-height: .96;
+    }
+
+    .portal-content p {
+      margin: 14px 0 0;
+      color: rgba(241, 231, 212, .72);
+      line-height: 1.65;
+    }
+
+    .portal-card:hover,
+    .portal-card:focus-visible {
+      border-color: rgba(243, 217, 129, .72);
+      box-shadow: 0 30px 100px rgba(212, 175, 55, .16), 0 24px 90px rgba(0, 0, 0, .5);
+      transform: translateY(-8px);
+    }
+
+    .portal-card:nth-child(2):hover,
+    .portal-card:nth-child(2):focus-visible,
+    .portal-card:nth-child(5):hover,
+    .portal-card:nth-child(5):focus-visible {
+      transform: translateY(20px);
+    }
+
+    .portal-card:hover img,
+    .portal-card:focus-visible img {
+      transform: scale(1.14);
+      filter: saturate(1.12) contrast(1.08);
+    }
+
+    .portal-card:hover::after,
+    .portal-card:focus-visible::after {
+      inset: 18px;
+      border-color: rgba(243, 217, 129, .52);
+    }
+
+    .portal-card:hover .portal-content,
+    .portal-card:focus-visible .portal-content {
+      transform: translateY(-10px);
+    }
+
+    .statement {
+      min-height: 80vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, .96), rgba(5, 5, 5, .62), rgba(5, 5, 5, .96)),
+        url("./assets/img/paintings/CloudStories.jpg") center / cover fixed;
+    }
+
+    .statement blockquote {
+      max-width: 920px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6.5vw, 6.2rem);
+      font-style: italic;
+      line-height: .98;
+      color: var(--bone);
+    }
+
+    .statement cite {
+      display: block;
+      margin-top: 30px;
+      color: var(--gold-light);
+      font-style: normal;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .final-cta {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, .95), rgba(5, 5, 5, .56) 52%, rgba(5, 5, 5, .88)),
+        radial-gradient(circle at 58% 42%, rgba(212, 175, 55, .2), transparent 24rem),
+        url("./assets/img/paintings/Monarca.jpg") center / cover no-repeat;
+    }
+
+    .final-cta p {
+      max-width: 660px;
+      margin: 24px 0 0;
+      color: var(--bone-dim);
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .site-footer {
+      padding: 52px 0;
+      border-top: 1px solid rgba(212, 175, 55, .18);
+      background: #050505;
+      color: var(--bone-faint);
+    }
+
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr .8fr .8fr .8fr;
-      gap: 2.4rem;
+      grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(120px, .55fr));
+      gap: 34px;
     }
-    .footer h3 {
+
+    .footer-logo {
+      color: var(--bone);
+      font-family: var(--serif);
+      font-size: 1.7rem;
+    }
+
+    .site-footer p {
+      max-width: 420px;
+      line-height: 1.75;
+    }
+
+    .site-footer h2 {
+      margin: 0 0 14px;
       color: var(--gold-light);
-      font-family: var(--label);
-      font-weight: 800;
-      letter-spacing: .22em;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      font-size: .85rem;
-      margin: 0 0 1.1rem;
     }
-    .footer p {
-      font-size: .94rem;
-      line-height: 1.7;
-      max-width: 320px;
-    }
-    .footer .brand-line {
-      font-family: var(--display);
-      font-style: italic;
-      color: var(--gold-light);
-      font-size: 1.4rem;
-      margin-bottom: .8rem;
-    }
-    .footer a {
+
+    .site-footer a {
       display: block;
-      color: var(--muted);
-      font-size: .92rem;
-      margin: .45rem 0;
-      transition: color .25s, transform .25s;
+      width: max-content;
+      margin-top: 10px;
+      color: rgba(241, 231, 212, .68);
+      transition: color .2s ease;
     }
-    .footer a:hover {
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
       color: var(--gold-light);
-      transform: translateX(4px);
     }
+
     .footer-bottom {
-      margin-top: 2.6rem;
-      padding-top: 1.6rem;
-      border-top: 1px solid var(--border-soft);
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: .85rem;
+      gap: 24px;
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(241, 231, 212, .08);
+      font-size: .88rem;
     }
 
-    /* ========= REVEAL ========= */
     .reveal {
       opacity: 0;
-      transform: translateY(36px);
-      transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform .9s cubic-bezier(.22, 1, .36, 1);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .85, .2, 1);
     }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .reveal.d1 { transition-delay: .1s; }
-    .reveal.d2 { transition-delay: .22s; }
-    .reveal.d3 { transition-delay: .34s; }
-    .reveal.d4 { transition-delay: .46s; }
 
-    /* ========= RESPONSIVE ========= */
-    @media (max-width: 991px) {
-      .va-nav .navbar-collapse {
-        margin-top: .8rem;
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: rgba(10, 8, 10, .96);
+    .fade-up {
+      transform: translateY(34px);
+    }
+
+    .slide-left {
+      transform: translateX(42px);
+    }
+
+    .slide-right {
+      transform: translateX(-42px);
+    }
+
+    .scale-in {
+      transform: scale(.94);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-toggle {
+        display: block;
       }
-      .va-nav .nav-link { margin-left: 0; padding: .7rem 0 !important; }
-      .va-nav .nav-link::after { display: none; }
-      .story-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .panels { grid-template-columns: 1fr; }
-      .head-row { flex-direction: column; align-items: flex-start; }
-      .cat-mosaic { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; }
-      .cat.c-paintings { grid-column: span 2; grid-row: span 2; }
-      .cat.c-digital, .cat.c-drawings, .cat.c-murals, .cat.c-sales { grid-column: span 1; grid-row: span 1; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 680px) {
-      .container { padding-left: 22px; padding-right: 22px; }
-      .va-brand { font-size: 1rem; letter-spacing: .1em; }
-      .hero { min-height: 96vh; }
-      .hero-inner { padding: 7.5rem 0 5.2rem; }
-      .hero-title { font-size: clamp(3rem, 16vw, 5.2rem); }
-      .hero-sub { font-size: 1.05rem; }
-      .btn-va { width: 100%; }
-      .section { padding: 5rem 0; }
-      .section.compact { padding: 4rem 0; }
-      .cat-mosaic { grid-template-columns: 1fr; grid-auto-rows: 260px; }
-      .cat.c-paintings { grid-column: span 1; grid-row: span 1; min-height: 360px; }
-      .panel { min-height: 420px; }
-      .panel-content { padding: 1.8rem 1.4rem; }
-      .cta-wrap { padding: 4rem 1.5rem; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .marquee-track span { font-size: 1.4rem; gap: 2rem; }
-      .marquee-track { gap: 2rem; }
+
+      .nav-links {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        top: calc(100% + 10px);
+        display: none;
+        padding: 16px;
+        border: 1px solid var(--border);
+        background: rgba(5, 5, 5, .96);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
+      }
+
+      .site-nav.is-open .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links a {
+        padding: 13px 8px;
+      }
+
+      .chapter-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-stage {
+        position: relative;
+        top: auto;
+        min-height: auto;
+      }
+
+      .stage-frame {
+        width: min(100%, 620px);
+      }
+
+      .chapter {
+        min-height: auto;
+        padding-block: 64px;
+      }
+
+      .portal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    /* ========= REDUCED MOTION ========= */
+    @media (max-width: 720px) {
+      .container,
+      .hero-inner {
+        width: min(100% - 36px, 1220px);
+      }
+
+      .nav-shell {
+        min-height: 68px;
+      }
+
+      .brand {
+        font-size: .98rem;
+        letter-spacing: .1em;
+      }
+
+      .site-nav.is-open .nav-links {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 96svh;
+      }
+
+      .hero-inner {
+        padding: 124px 0 82px;
+      }
+
+      .hero h1 {
+        font-size: clamp(4rem, 20vw, 6.4rem);
+      }
+
+      .actions,
+      .button {
+        width: 100%;
+      }
+
+      .section,
+      .chapters {
+        padding: 74px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 34px;
+      }
+
+      .stage-frame {
+        aspect-ratio: 4 / 4.8;
+      }
+
+      .stage-label {
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        display: grid;
+      }
+
+      .chapter {
+        padding: 54px 0 54px 20px;
+      }
+
+      .chapter h2,
+      .section-heading h2,
+      .final-cta h2,
+      .statement blockquote {
+        font-size: clamp(2.6rem, 14vw, 4.3rem);
+      }
+
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portal-card,
+      .portal-card:nth-child(2),
+      .portal-card:nth-child(5) {
+        min-height: 340px;
+        transform: none;
+      }
+
+      .portal-card:nth-child(2):hover,
+      .portal-card:nth-child(2):focus-visible,
+      .portal-card:nth-child(5):hover,
+      .portal-card:nth-child(5):focus-visible {
+        transform: none;
+      }
+
+      .portal-card:hover,
+      .portal-card:focus-visible {
+        transform: none;
+      }
+
+      .statement {
+        background-attachment: scroll;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        display: grid;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .001ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: .001ms !important;
         scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
       }
-      .hero-stage { animation: none; transform: scale(1.04); }
-      .reveal { opacity: 1; transform: none; }
-      .hero-title .line span { transform: none; }
-      .hero-sub, .hero-copy, .hero-actions, .scroll-cue { opacity: 1; }
+
+      .hero-art,
+      .visual-stage {
+        transform: none !important;
+      }
+
+      .reveal,
+      .stagger {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- ============ NAV (preserved) ============ -->
-  <nav class="navbar navbar-expand-lg fixed-top va-nav" id="va-nav">
-    <div class="container">
-      <a class="navbar-brand va-brand" href="./index.html" data-testid="nav-brand">Vargas <em>Arts</em></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"
-        data-testid="nav-toggle">
-        <span class="navbar-toggler-icon-line"></span>
-        <span class="navbar-toggler-icon-line"></span>
-        <span class="navbar-toggler-icon-line"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="./paintings.html" data-testid="nav-paintings">Paintings</a></li>
-          <li class="nav-item"><a class="nav-link" href="./digital_art.html" data-testid="nav-digital">Digital Art</a></li>
-          <li class="nav-item"><a class="nav-link" href="./drawings.html" data-testid="nav-drawings">Drawings</a></li>
-          <li class="nav-item"><a class="nav-link" href="./wall_murals.html" data-testid="nav-murals">Murals</a></li>
-          <li class="nav-item"><a class="nav-link" href="./videos.html" data-testid="nav-videos">Videos</a></li>
-          <li class="nav-item"><a class="nav-link" href="./sales.html" data-testid="nav-sales">Art for Sale</a></li>
-          <li class="nav-item"><a class="nav-link" href="./about.html" data-testid="nav-about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="./contact.html" data-testid="nav-contact">Contact</a></li>
-        </ul>
-      </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <div class="container nav-shell">
+      <a class="brand" href="./index.html">Vargas <span>Arts</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false"
+        aria-label="Toggle navigation"><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="./paintings.html">Paintings</a></li>
+        <li><a href="./digital_art.html">Digital Art</a></li>
+        <li><a href="./drawings.html">Drawings</a></li>
+        <li><a href="./wall_murals.html">Murals</a></li>
+        <li><a href="./videos.html">Videos</a></li>
+        <li><a href="./sales.html">Art for Sale</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
-  <header class="hero" id="top" data-testid="hero">
-    <div class="hero-stage" aria-hidden="true"></div>
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-veil" aria-hidden="true"></div>
-
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-meta-row">
-          <span class="hero-tag"><span class="dot"></span>Original Art Portfolio</span>
-          <span class="hero-loc">Gainesville · Florida</span>
-        </div>
-
-        <h1 class="hero-title" data-testid="hero-title">
-          <span class="line"><span>Vargas</span></span>
-          <span class="line l2"><span class="arts">Arts</span></span>
-        </h1>
-
-        <p class="hero-sub">
-          Original paintings, drawings and digital art by <strong style="font-weight:500;color:var(--gold-light)">Ulises Vargas</strong> — shaped by nature, fantasy and emotion.
-        </p>
-        <p class="hero-copy">
-          Wildlife, fine art and imaginative scenes brought to life through color, movement and visual storytelling. Each piece begins as a feeling and becomes a story on canvas, paper or screen.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn-va btn-gold" href="./paintings.html" data-testid="hero-explore">
-            Explore Artwork <span class="arr">→</span>
-          </a>
-          <a class="btn-va btn-outline" href="./contact.html" data-testid="hero-contact">
-            Contact Artist <span class="arr">→</span>
-          </a>
-        </div>
+  <header class="hero" id="top">
+    <div class="hero-art" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="kicker stagger">Original artwork by Ulises Vargas</p>
+      <h1 class="stagger d1">Vargas <span>Arts</span></h1>
+      <p class="intro-line stagger d2">
+        Wildlife, fantasy and fine art scenes built with color, emotion and a cinematic sense of story.
+      </p>
+      <p class="intro-copy stagger d3">
+        Explore original paintings, drawings, digital art and murals from a Gainesville artist whose work moves between
+        nature, imagination and studio craft.
+      </p>
+      <div class="actions stagger d4">
+        <a class="button gold" href="./paintings.html">Explore Artwork</a>
+        <a class="button ghost" href="./contact.html">Contact Artist</a>
       </div>
     </div>
-
-    <a class="scroll-cue" href="#story" aria-label="Scroll to story">
+    <a class="scroll-cue" href="#chapters" aria-label="Scroll to artwork chapters">
       Scroll
-      <span class="line-v" aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </a>
   </header>
 
-  <!-- ============ MARQUEE ============ -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Original Paintings</span>
-      <span>Wildlife</span>
-      <span>Fantasy</span>
-      <span>Digital Art</span>
-      <span>Drawings</span>
-      <span>Murals</span>
-      <span>Nature</span>
-      <span>Imagination</span>
-      <!-- duplicated for seamless loop -->
-      <span>Original Paintings</span>
-      <span>Wildlife</span>
-      <span>Fantasy</span>
-      <span>Digital Art</span>
-      <span>Drawings</span>
-      <span>Murals</span>
-      <span>Nature</span>
-      <span>Imagination</span>
-    </div>
-  </div>
-
   <main>
-
-    <!-- ============ STORYTELLING ============ -->
-    <section class="section" id="story" data-testid="section-story">
+    <section class="chapters" id="chapters" aria-labelledby="chapter-title">
       <div class="container">
-        <div class="story-grid">
-          <div class="story-img reveal">
-            <img src="./assets/img/paintings/Sunrise.jpg" alt="Sunrise — original painting by Ulises Vargas" loading="lazy">
-            <div class="frame-tag">
-              <span>Sunrise · Oil</span>
-              <span>Studio · 2025</span>
-            </div>
-          </div>
-          <div>
-            <div class="eyebrow reveal">Artist Statement</div>
-            <h2 class="section-title reveal d1">
-              Art shaped by <em>imagination</em>, nature and emotion.
-            </h2>
-            <p class="section-copy reveal d2">
-              Every artwork begins with a single idea — a feeling, a place, a moment of stillness — and slowly becomes a visual story. From wildlife and landscapes to fantasy and abstract worlds, each piece carries a voice of its own.
-            </p>
-            <p class="quote-large reveal d3">
-              "I paint what I dream and draw what I feel. The canvas is just where the story lands."
-            </p>
-            <div class="signature reveal d4">
-              Ulises Vargas
-              <small>Artist · Painter · Storyteller</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CATEGORIES MOSAIC ============ -->
-    <section class="section alt" id="collections" data-testid="section-collections">
-      <div class="container">
-        <div class="head-row">
-          <div>
-            <div class="eyebrow reveal">The Collections</div>
-            <h2 class="section-title reveal d1">Explore the <em>world</em><br>of the artist.</h2>
-          </div>
-          <p class="section-copy reveal d2">
-            Five distinct bodies of work — paintings, digital art, drawings, murals and pieces currently available for collectors. Step into each and follow the story.
+        <div class="section-heading reveal fade-up">
+          <p class="kicker">Scroll chapters</p>
+          <h2 id="chapter-title">Enter the work as a sequence of <em>visual scenes</em>.</h2>
+          <p class="section-copy">
+            Each chapter draws from a different part of the Vargas Arts portfolio, shifting the visual stage as the page
+            moves through nature, fantasy, original paintings, digital worlds and studio process.
           </p>
         </div>
 
-        <div class="cat-mosaic">
-          <a class="cat c-paintings reveal" href="./paintings.html" data-testid="cat-paintings">
-            <img src="./assets/img/paintings/GoldPanter.jpg" alt="Original paintings by Ulises Vargas" loading="lazy">
-            <div class="cat-info">
-              <div>
-                <div class="num">01 — Original</div>
-                <h3>Paintings</h3>
+        <div class="chapter-layout">
+          <div class="visual-stage" aria-hidden="true">
+            <div class="stage-frame">
+              <div class="stage-image is-active" data-scene-image="wildlife">
+                <img src="./assets/img/paintings/wildlifeB.jpg" alt="">
               </div>
-              <span class="go" aria-hidden="true">→</span>
+              <div class="stage-image" data-scene-image="fantasy">
+                <img src="./assets/img/digital_art/Fantasyc.jpg" alt="">
+              </div>
+              <div class="stage-image" data-scene-image="paintings">
+                <img src="./assets/img/paintings/Alpha.jpg" alt="">
+              </div>
+              <div class="stage-image" data-scene-image="digital">
+                <img src="./assets/img/digital_art/Fire_on_Water.jpg" alt="">
+              </div>
+              <div class="stage-image" data-scene-image="process">
+                <img src="./assets/img/drawings/Bee.jpg" alt="">
+              </div>
+              <div class="stage-label">
+                <span id="stage-title">Wildlife & Nature</span>
+                <span>Vargas Arts</span>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a class="cat c-digital reveal d1" href="./digital_art.html" data-testid="cat-digital">
-            <img src="./assets/img/digital_art/Lightning.jpg" alt="Digital art by Ulises Vargas" loading="lazy">
-            <div class="cat-info">
-              <div>
-                <div class="num">02 — Visual</div>
-                <h3>Digital Art</h3>
-              </div>
-              <span class="go" aria-hidden="true">→</span>
-            </div>
-          </a>
+          <div class="chapter-copy">
+            <article class="chapter is-active reveal slide-left" data-scene="wildlife">
+              <span class="chapter-number">Chapter 01</span>
+              <h2>Wildlife <em>& Nature</em></h2>
+              <p>
+                Animals, flowers, landscapes and quiet natural details become dramatic subjects, painted with contrast,
+                warmth and a sense of movement.
+              </p>
+              <a class="chapter-link" href="./paintings.html">View paintings</a>
+            </article>
 
-          <a class="cat c-drawings reveal d2" href="./drawings.html" data-testid="cat-drawings">
-            <img src="./assets/img/drawings/Tiger.jpg" alt="Drawings by Ulises Vargas" loading="lazy">
-            <div class="cat-info">
-              <div>
-                <div class="num">03 — On Paper</div>
-                <h3>Drawings</h3>
-              </div>
-              <span class="go" aria-hidden="true">→</span>
-            </div>
-          </a>
+            <article class="chapter reveal slide-left" data-scene="fantasy">
+              <span class="chapter-number">Chapter 02</span>
+              <h2>Fantasy <em>& Imagination</em></h2>
+              <p>
+                Dreamlike digital compositions open into worlds where color and atmosphere carry the story beyond the
+                edges of the frame.
+              </p>
+              <a class="chapter-link" href="./digital_art.html">View digital art</a>
+            </article>
 
-          <a class="cat c-murals reveal d1" href="./wall_murals.html" data-testid="cat-murals">
-            <img src="./assets/img/murals/wall_butterfly.jpg" alt="Wall murals by Ulises Vargas" loading="lazy">
-            <div class="cat-info">
-              <div>
-                <div class="num">04 — Large Scale</div>
-                <h3>Wall Murals</h3>
-              </div>
-              <span class="go" aria-hidden="true">→</span>
-            </div>
-          </a>
+            <article class="chapter reveal slide-left" data-scene="paintings">
+              <span class="chapter-number">Chapter 03</span>
+              <h2>Original <em>Paintings</em></h2>
+              <p>
+                Canvas work gives the portfolio its tactile heart, from expressive wildlife studies to scenes filled
+                with light, texture and feeling.
+              </p>
+              <a class="chapter-link" href="./paintings.html">Explore originals</a>
+            </article>
 
-          <a class="cat c-sales reveal d2" href="./sales.html" data-testid="cat-sales">
-            <img src="./assets/img/paintings/Monarca.jpg" alt="Art for sale by Ulises Vargas" loading="lazy">
-            <div class="cat-info">
-              <div>
-                <div class="num">05 — For Collectors</div>
-                <h3>Art For Sale</h3>
-              </div>
-              <span class="go" aria-hidden="true">→</span>
-            </div>
-          </a>
+            <article class="chapter reveal slide-left" data-scene="digital">
+              <span class="chapter-number">Chapter 04</span>
+              <h2>Digital <em>Art</em></h2>
+              <p>
+                Digital pieces sharpen the cinematic mood, blending fire, water, weather and surreal light into images
+                that feel suspended in motion.
+              </p>
+              <a class="chapter-link" href="./digital_art.html">Enter the digital gallery</a>
+            </article>
+
+            <article class="chapter reveal slide-left" data-scene="process">
+              <span class="chapter-number">Chapter 05</span>
+              <h2>Drawings <em>& Studio Process</em></h2>
+              <p>
+                Pencil and detail work reveal the discipline behind the spectacle: observation, line, patience and the
+                first spark of every larger idea.
+              </p>
+              <a class="chapter-link" href="./drawings.html">See the drawings</a>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ CINEMATIC PANELS ============ -->
-    <section class="section" id="panels" data-testid="section-panels">
+    <section class="section portal-section" id="collections" aria-labelledby="collections-title">
       <div class="container">
-        <div class="head-row">
-          <div>
-            <div class="eyebrow reveal">Inside the Work</div>
-            <h2 class="section-title reveal d1">Four <em>worlds</em>,<br>one artist.</h2>
-          </div>
-          <p class="section-copy reveal d2">
-            Recurring themes that shape every piece — drawn from observation, memory and pure imagination.
+        <div class="section-heading center reveal fade-up">
+          <p class="kicker">Gallery portals</p>
+          <h2 id="collections-title">Choose a doorway into the <em>portfolio</em>.</h2>
+          <p class="section-copy">
+            Move directly into paintings, digital work, drawings, murals, videos or available art while keeping the
+            homepage focused on the larger visual atmosphere.
           </p>
         </div>
 
-        <div class="panels">
-          <a class="panel reveal" href="./paintings.html" data-testid="panel-wildlife">
-            <div class="bg" style="background-image:url('./assets/img/paintings/BlackPhanter.jpg')"></div>
-            <div class="panel-content">
-              <div class="panel-num">Chapter I</div>
-              <h3>Wildlife <em>& Nature</em></h3>
-              <p>Tigers, panthers, butterflies and quiet moments of the natural world — captured with motion, breath and color.</p>
-              <span class="panel-link">View Paintings <span aria-hidden="true">→</span></span>
+        <div class="portal-grid">
+          <a class="portal-card reveal scale-in" href="./paintings.html">
+            <img src="./assets/img/paintings/Monarca.jpg" alt="Painting of monarch butterflies by Ulises Vargas"
+              loading="lazy">
+            <div class="portal-content">
+              <span>01 Original</span>
+              <h3>Paintings</h3>
+              <p>Canvas works with nature, color and story at the center.</p>
             </div>
           </a>
 
-          <a class="panel reveal d1" href="./digital_art.html" data-testid="panel-fantasy">
-            <div class="bg" style="background-image:url('./assets/img/digital_art/NightDreamer.jpg')"></div>
-            <div class="panel-content">
-              <div class="panel-num">Chapter II</div>
-              <h3>Fantasy <em>& Imagination</em></h3>
-              <p>Dreamlike scenes, characters and otherworldly compositions where light, color and story take over the frame.</p>
-              <span class="panel-link">View Digital Art <span aria-hidden="true">→</span></span>
+          <a class="portal-card reveal scale-in" href="./digital_art.html">
+            <img src="./assets/img/digital_art/NightDreamer.jpg" alt="Fantasy digital artwork by Ulises Vargas"
+              loading="lazy">
+            <div class="portal-content">
+              <span>02 Digital</span>
+              <h3>Digital Art</h3>
+              <p>Atmospheric images shaped with light, imagination and motion.</p>
             </div>
           </a>
 
-          <a class="panel reveal d2" href="./drawings.html" data-testid="panel-studio">
-            <div class="bg" style="background-image:url('./assets/img/drawings/Lionfish.jpg')"></div>
-            <div class="panel-content">
-              <div class="panel-num">Chapter III</div>
-              <h3>Studio <em>Process</em></h3>
-              <p>From a first pencil line to finished detail — drawings that reveal the rhythm and care behind every piece.</p>
-              <span class="panel-link">View Drawings <span aria-hidden="true">→</span></span>
+          <a class="portal-card reveal scale-in" href="./drawings.html">
+            <img src="./assets/img/drawings/Tiger.jpg" alt="Detailed tiger drawing by Ulises Vargas" loading="lazy">
+            <div class="portal-content">
+              <span>03 Studio</span>
+              <h3>Drawings</h3>
+              <p>Line, texture and close observation from the studio process.</p>
             </div>
           </a>
 
-          <a class="panel reveal d3" href="./sales.html" data-testid="panel-collectors">
-            <div class="bg" style="background-image:url('./assets/img/paintings/Oasis.jpg')"></div>
-            <div class="panel-content">
-              <div class="panel-num">Chapter IV</div>
-              <h3>Original Works <em>for Collectors</em></h3>
-              <p>A curated selection of original artwork currently available — for those who want to bring a one-of-a-kind piece home.</p>
-              <span class="panel-link">View Art For Sale <span aria-hidden="true">→</span></span>
+          <a class="portal-card reveal scale-in" href="./wall_murals.html">
+            <img src="./assets/img/murals/wall_butterfly.jpg" alt="Butterfly wall mural by Ulises Vargas"
+              loading="lazy">
+            <div class="portal-content">
+              <span>04 Large scale</span>
+              <h3>Wall Murals</h3>
+              <p>Artwork made for walls, interiors and immersive spaces.</p>
+            </div>
+          </a>
+
+          <a class="portal-card reveal scale-in" href="./videos.html">
+            <img src="./assets/img/paintings/CloudStories.jpg" alt="Cloud Stories painting used as a video gallery preview"
+              loading="lazy">
+            <div class="portal-content">
+              <span>05 Motion</span>
+              <h3>Videos</h3>
+              <p>Watch the artist's work and process through moving images.</p>
+            </div>
+          </a>
+
+          <a class="portal-card reveal scale-in" href="./sales.html">
+            <img src="./assets/img/paintings/Oasis.jpg" alt="Original artwork preview for the art for sale gallery"
+              loading="lazy">
+            <div class="portal-content">
+              <span>06 Available</span>
+              <h3>Art For Sale</h3>
+              <p>Browse original pieces currently presented for purchase.</p>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ ABOUT PREVIEW ============ -->
-    <section class="section alt compact" id="about-preview" data-testid="section-about">
+    <section class="statement" aria-labelledby="statement-title">
       <div class="container">
-        <div class="about-grid">
-          <div class="artist-frame reveal" aria-label="Ulises Vargas — Artist portrait">
-            <div class="artist-tag">
-              The Artist
-              <span>Ulises Vargas</span>
-            </div>
-          </div>
-          <div>
-            <div class="eyebrow reveal">About</div>
-            <h2 class="section-title reveal d1">A life built<br>around <em>making art</em>.</h2>
-            <p class="section-copy reveal d2">
-              Working from Gainesville, Florida, Ulises Vargas creates original paintings, drawings and digital pieces inspired by wildlife, fantasy and the natural world. His focus stays on emotion, movement, color and storytelling — building images that hold a feeling long after you stop looking.
-            </p>
-            <div class="hero-actions reveal d3" style="margin-top:2rem">
-              <a class="btn-va btn-gold" href="./about.html" data-testid="about-read-more">
-                Read More <span class="arr">→</span>
-              </a>
-              <a class="btn-va btn-outline" href="./videos.html" data-testid="about-videos">
-                Watch Videos <span class="arr">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        <p class="kicker reveal fade-up">Artist statement</p>
+        <blockquote id="statement-title" class="reveal slide-right">
+          "I paint what I dream and draw what I feel. The canvas is just where the story lands."
+        </blockquote>
+        <cite class="reveal fade-up">Ulises Vargas</cite>
       </div>
     </section>
 
-    <!-- ============ FINAL CTA ============ -->
-    <section class="section" id="cta" data-testid="section-cta">
+    <section class="final-cta" aria-labelledby="cta-title">
       <div class="container">
-        <div class="cta-wrap reveal">
-          <div class="bg" aria-hidden="true"></div>
-          <div class="eyebrow center reveal d1">Step Inside the Studio</div>
-          <h2>Explore the full <em>portfolio</em><br>or reach out to the artist.</h2>
-          <p>Browse paintings, digital art, drawings and murals — or get in touch about an original piece, a commission or a question.</p>
-          <div class="cta-actions">
-            <a class="btn-va btn-gold" href="./paintings.html" data-testid="cta-explore">
-              Explore Artwork <span class="arr">→</span>
-            </a>
-            <a class="btn-va btn-outline" href="./contact.html" data-testid="cta-contact">
-              Contact Artist <span class="arr">→</span>
-            </a>
-          </div>
+        <p class="kicker reveal fade-up">The next scene</p>
+        <h2 id="cta-title" class="reveal fade-up">Step closer to the <em>artwork</em>.</h2>
+        <p class="reveal fade-up">
+          Explore the full Vargas Arts portfolio, follow the details across each collection, or reach out to the artist
+          about an original piece, a commission or a conversation.
+        </p>
+        <div class="actions reveal fade-up">
+          <a class="button gold" href="./paintings.html">Explore Artwork</a>
+          <a class="button ghost" href="./contact.html">Contact Artist</a>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer" data-testid="footer">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-line">Vargas Arts</div>
+          <div class="footer-logo">Vargas Arts</div>
           <p>Original paintings, digital artwork, drawings and murals created by Ulises Vargas in Gainesville, Florida.</p>
         </div>
         <div>
-          <h3>Explore</h3>
+          <h2>Explore</h2>
           <a href="./paintings.html">Paintings</a>
           <a href="./digital_art.html">Digital Art</a>
           <a href="./drawings.html">Drawings</a>
@@ -1301,15 +1339,15 @@
           <a href="./sales.html">Art For Sale</a>
         </div>
         <div>
-          <h3>Connect</h3>
-          <a href="./about.html">About the Artist</a>
+          <h2>Connect</h2>
+          <a href="./about.html">About</a>
           <a href="./contact.html">Contact</a>
           <a href="https://www.instagram.com/ulises_vargas_arts/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.youtube.com/user/varzacaportescu" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.tiktok.com/@ulis35" target="_blank" rel="noopener">TikTok</a>
         </div>
         <div>
-          <h3>Legal</h3>
+          <h2>Legal</h2>
           <a href="./privacy.html">Privacy Policy</a>
           <a href="./terms.html">Terms of Use</a>
           <a href="./copyright.html">Copyright</a>
@@ -1317,60 +1355,122 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© Arts by Ulises Vargas · Gainesville, Florida.</span>
-        <span style="font-family:var(--display);font-style:italic;color:var(--gold-light)">Made with care for art.</span>
+        <span>Copyright Vargas Arts by Ulises Vargas.</span>
+        <span>Built for a static, fast-loading gallery experience.</span>
       </div>
     </div>
   </footer>
 
-  <!-- ============ SCRIPTS ============ -->
-  <script src="./assets/js/core/jquery.min.js"></script>
-  <script src="./assets/js/core/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script>
     (function () {
-      // Reveal on scroll
-      var items = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add('is-visible');
-              io.unobserve(e.target);
+      var root = document.documentElement;
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var nav = document.getElementById("site-nav");
+      var navToggle = document.getElementById("nav-toggle");
+      var stageTitle = document.getElementById("stage-title");
+      var sceneNames = {
+        wildlife: "Wildlife & Nature",
+        fantasy: "Fantasy & Imagination",
+        paintings: "Original Paintings",
+        digital: "Digital Art",
+        process: "Drawings & Studio Process"
+      };
+      var ticking = false;
+
+      function updateScroll() {
+        var max = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+        var progress = window.scrollY / max;
+        root.style.setProperty("--progress", progress.toFixed(4));
+
+        if (!reduceMotion) {
+          var heroOffset = Math.min(window.scrollY, window.innerHeight);
+          root.style.setProperty("--hero-y", (heroOffset * .18).toFixed(1) + "px");
+          root.style.setProperty("--hero-scale", (1.08 + progress * .045).toFixed(3));
+          root.style.setProperty("--stage-y", Math.sin(progress * Math.PI) * 10 + "px");
+        }
+
+        if (window.scrollY > 24) {
+          nav.classList.add("is-scrolled");
+        } else {
+          nav.classList.remove("is-scrolled");
+        }
+
+        ticking = false;
+      }
+
+      function requestScrollUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateScroll);
+      }
+
+      navToggle.addEventListener("click", function () {
+        var isOpen = nav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          nav.classList.remove("is-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      var reveals = document.querySelectorAll(".reveal");
+      if (reduceMotion) {
+        reveals.forEach(function (item) {
+          item.classList.add("is-visible");
+        });
+      } else if ("IntersectionObserver" in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
-        items.forEach(function (i) { io.observe(i); });
+        }, { threshold: .14, rootMargin: "0px 0px -44px 0px" });
+
+        reveals.forEach(function (item) {
+          revealObserver.observe(item);
+        });
       } else {
-        items.forEach(function (i) { i.classList.add('is-visible'); });
+        reveals.forEach(function (item) {
+          item.classList.add("is-visible");
+        });
       }
 
-      // Nav background on scroll
-      var nav = document.getElementById('va-nav');
-      var onScroll = function () {
-        if (window.scrollY > 24) nav.classList.add('is-scrolled');
-        else nav.classList.remove('is-scrolled');
-      };
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
+      function setActiveScene(scene) {
+        document.querySelectorAll("[data-scene]").forEach(function (chapter) {
+          chapter.classList.toggle("is-active", chapter.dataset.scene === scene);
+        });
 
-      // Subtle parallax on hero (disabled for reduced motion)
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!reduce) {
-        var stage = document.querySelector('.hero-stage');
-        var grid = document.querySelector('.hero-grid');
-        var ticking = false;
-        window.addEventListener('scroll', function () {
-          if (ticking) return;
-          window.requestAnimationFrame(function () {
-            var y = Math.min(window.scrollY, 800);
-            if (stage) stage.style.transform = 'scale(1.08) translate3d(0,' + (y * 0.18) + 'px,0)';
-            if (grid) grid.style.transform = 'translate3d(0,' + (y * 0.08) + 'px,0)';
-            ticking = false;
+        document.querySelectorAll("[data-scene-image]").forEach(function (image) {
+          image.classList.toggle("is-active", image.dataset.sceneImage === scene);
+        });
+
+        if (stageTitle && sceneNames[scene]) {
+          stageTitle.textContent = sceneNames[scene];
+        }
+      }
+
+      if ("IntersectionObserver" in window) {
+        var chapterObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              setActiveScene(entry.target.dataset.scene);
+            }
           });
-          ticking = true;
-        }, { passive: true });
+        }, { threshold: .58, rootMargin: "-15% 0px -25% 0px" });
+
+        document.querySelectorAll("[data-scene]").forEach(function (chapter) {
+          chapterObserver.observe(chapter);
+        });
       }
+
+      window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+      window.addEventListener("resize", requestScrollUpdate);
+      updateScroll();
     })();
   </script>
 </body>
