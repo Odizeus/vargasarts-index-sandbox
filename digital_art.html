@@ -267,6 +267,10 @@
       transition: .65s
     }
 
+    .art-card img.owl-focus {
+      object-position: 50% 38%;
+    }
+
     .art-card:hover img {
       transform: scale(1.08);
       filter: saturate(1.1) contrast(1.07)
@@ -577,7 +581,7 @@
             <p class="art-meta">Nature-inspired digital art</p>
           </div>
         </article>
-        <article class="art-card" onclick="openModal();currentSlide(2)"><img
+        <article class="art-card" onclick="openModal();currentSlide(2)"><img class="owl-focus"
             src="./assets/img/digital_art/Lightning.jpg" alt="Lightning Owl digital painting by Ulises Vargas"
             loading="lazy">
           <div class="art-info">

@@ -107,6 +107,41 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
     }
 
+    .cursor-glow {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 59;
+      display: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      background: rgba(245, 215, 110, .86);
+      box-shadow: 0 0 18px rgba(245, 215, 110, .46);
+      transform: translate3d(-999px, -999px, 0);
+      transition: opacity .42s ease;
+      will-change: transform, opacity;
+    }
+
+    .cursor-glow::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 74px;
+      height: 74px;
+      border-radius: inherit;
+      background: radial-gradient(circle, rgba(245, 215, 110, .24), rgba(212, 175, 55, .12) 34%, transparent 72%);
+      filter: blur(8px);
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-glow.is-visible {
+      opacity: .72;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -591,9 +626,9 @@
     }
 
     .mini-one {
-      left: -12%;
-      top: 10%;
-      width: min(43%, 246px);
+      left: -18%;
+      top: 8%;
+      width: min(45%, 258px);
       animation: floatTwo 8s ease-in-out infinite;
     }
 
@@ -606,12 +641,14 @@
 
     .badge-card {
       position: absolute;
-      right: -5%;
-      bottom: 4%;
+      right: -7%;
+      bottom: 3%;
       z-index: 6;
       display: grid;
-      gap: .25rem;
-      width: min(42%, 236px);
+      grid-template-columns: minmax(0, 1fr) 76px;
+      gap: .8rem;
+      align-items: center;
+      width: min(48%, 282px);
       padding: 1rem;
       border: 1px solid rgba(245, 215, 110, .3);
       border-radius: 24px;
@@ -622,6 +659,12 @@
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       animation: floatTwo 8.5s ease-in-out infinite reverse;
+    }
+
+    .badge-copy {
+      display: grid;
+      gap: .28rem;
+      min-width: 0;
     }
 
     .badge-card span {
@@ -635,6 +678,26 @@
     .badge-card strong {
       font-size: clamp(1.2rem, 2vw, 1.65rem);
       line-height: 1.05;
+    }
+
+    .signature-window {
+      position: relative;
+      overflow: hidden;
+      height: 66px;
+      border: 1px solid rgba(245, 215, 110, .26);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .04);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+    }
+
+    .signature-window img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 100% 100%;
+      transform: scale(2.35);
+      transform-origin: 94% 91%;
+      filter: saturate(1.04) contrast(1.05);
     }
 
     .collection-grid {
@@ -1021,6 +1084,7 @@
       height: 100%;
       min-height: inherit;
       object-fit: cover;
+      object-position: center;
     }
 
     .artist-image span {
@@ -1330,6 +1394,7 @@
         right: 0;
         bottom: 12%;
         width: 58%;
+        grid-template-columns: 1fr;
       }
 
       .mini-card img {
@@ -1408,6 +1473,10 @@
         font-size: .58rem;
       }
 
+      .signature-window {
+        display: none;
+      }
+
       .section-shell,
       .preview-card,
       .dashboard-visual,
@@ -1425,6 +1494,18 @@
       }
     }
 
+    @media (hover: hover) and (pointer: fine) {
+      .cursor-glow {
+        display: block;
+      }
+    }
+
+    @media (max-width: 900px), (hover: none), (pointer: coarse) {
+      .cursor-glow {
+        display: none !important;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -1439,11 +1520,17 @@
         opacity: 1;
         transform: none;
       }
+
+      .cursor-glow {
+        display: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="site-header" id="site-header">
     <nav class="container nav-shell" aria-label="Primary navigation">
       <a class="brand" href="./index.html" aria-label="Vargas Arts home">
@@ -1507,16 +1594,21 @@
           </article>
 
           <article class="mini-card mini-two">
-            <img src="./assets/img/drawings/Bee.jpg" alt="Bee drawing by Ulises Vargas" loading="lazy">
+            <img src="./assets/img/digital_art/BetaF.jpg" alt="Fire betta fish digital artwork by Ulises Vargas" loading="lazy">
             <div class="mini-body">
-              <span class="mini-label">Studio Drawings</span>
-              <strong>Line, observation and patient craft.</strong>
+              <span class="mini-label">Fire Betta</span>
+              <strong>Blue flame, movement and signature detail.</strong>
             </div>
           </article>
 
           <div class="badge-card" aria-label="Artist location">
-            <span>Gainesville, Florida</span>
-            <strong>Wildlife, fantasy and fine art.</strong>
+            <div class="badge-copy">
+              <span>Gainesville, Florida</span>
+              <strong>Wildlife, fantasy and fine art.</strong>
+            </div>
+            <div class="signature-window" aria-hidden="true">
+              <img src="./assets/img/digital_art/BetaF.jpg" alt="" loading="lazy">
+            </div>
           </div>
         </div>
       </div>
@@ -1768,8 +1860,8 @@
         </article>
 
         <div class="artist-image reveal">
-          <img src="./assets/img/paintings/Alpha.jpg" alt="Atmospheric original painting by Ulises Vargas" loading="lazy">
-          <span class="chip">Original Work</span>
+          <img src="./assets/img/paintings/ForbiddenNectar.jpg" alt="Forbidden Nectar original painting by Ulises Vargas" loading="lazy">
+          <span class="chip">Original Painting</span>
         </div>
       </div>
     </section>
@@ -1836,6 +1928,7 @@
       var navToggle = document.querySelector(".nav-toggle");
       var navMenu = document.getElementById("primary-menu");
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
       function setMenu(open) {
         if (!header || !navToggle || !navMenu) return;
@@ -1875,6 +1968,41 @@
 
       window.addEventListener("scroll", updateHeader, { passive: true });
       updateHeader();
+
+      var cursorGlow = document.querySelector(".cursor-glow");
+      if (cursorGlow && finePointer && !reduceMotion) {
+        var cursorX = -999;
+        var cursorY = -999;
+        var cursorFrame = null;
+        var cursorFadeTimer = null;
+
+        function drawCursorGlow() {
+          cursorFrame = null;
+          cursorGlow.style.transform = "translate3d(" + (cursorX - 6) + "px, " + (cursorY - 6) + "px, 0)";
+        }
+
+        function requestCursorDraw() {
+          if (cursorFrame) return;
+          cursorFrame = window.requestAnimationFrame(drawCursorGlow);
+        }
+
+        function hideCursorGlow() {
+          cursorGlow.classList.remove("is-visible");
+        }
+
+        window.addEventListener("mousemove", function (event) {
+          cursorX = event.clientX;
+          cursorY = event.clientY;
+          cursorGlow.classList.add("is-visible");
+          requestCursorDraw();
+
+          window.clearTimeout(cursorFadeTimer);
+          cursorFadeTimer = window.setTimeout(hideCursorGlow, 820);
+        }, { passive: true });
+
+        window.addEventListener("mouseleave", hideCursorGlow);
+        window.addEventListener("blur", hideCursorGlow);
+      }
 
       var reveals = document.querySelectorAll(".reveal");
       if (reduceMotion) {
