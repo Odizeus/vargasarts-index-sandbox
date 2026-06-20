@@ -51,7 +51,6 @@
       --progress: 0;
       --hero-y: 0px;
       --hero-scale: 1.04;
-      --stage-y: 0px;
     }
 
     *,
@@ -110,6 +109,11 @@
       max-width: 100%;
     }
 
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
     .container {
       width: calc(100% - clamp(32px, 5vw, 72px));
       max-width: 1200px;
@@ -145,6 +149,26 @@
 
     .navbar.va-nav .nav-link.active {
       pointer-events: none;
+    }
+
+    .navbar.va-nav > .container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .navbar.va-nav .navbar-toggler {
+      flex: 0 0 auto !important;
+      display: inline-flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    @media (min-width: 992px) {
+      .navbar.va-nav .navbar-toggler {
+        display: none !important;
+      }
     }
 
     .eyebrow {
@@ -431,6 +455,7 @@
     }
 
     .identity {
+      order: 4;
       padding-block: clamp(48px, 6vw, 78px);
       border-block: 1px solid rgba(212, 175, 55, .18);
       background:
@@ -500,6 +525,7 @@
     }
 
     .worlds {
+      order: 2;
       background:
         radial-gradient(circle at 22% 24%, rgba(212, 175, 55, .09), transparent 32rem),
         linear-gradient(180deg, var(--black), #0d0c0a 48%, var(--black));
@@ -507,24 +533,23 @@
 
     .world-layout {
       display: grid;
-      grid-template-columns: minmax(360px, .92fr) minmax(0, 1fr);
+      grid-template-columns: minmax(320px, .86fr) minmax(420px, 1.04fr);
       gap: clamp(34px, 5vw, 64px);
-      align-items: start;
+      align-items: stretch;
     }
 
     .world-stage {
-      position: sticky;
-      top: 92px;
-      min-height: calc(100vh - 132px);
+      order: 2;
+      min-height: 100%;
       display: grid;
       place-items: center;
-      transform: translateY(var(--stage-y));
     }
 
     .stage-card {
       position: relative;
-      width: min(100%, 590px);
-      aspect-ratio: 4 / 4.6;
+      width: 100%;
+      min-height: 100%;
+      aspect-ratio: 4 / 3.55;
       border: 1px solid rgba(212, 175, 55, .3);
       border-radius: 22px;
       background: #080706;
@@ -614,6 +639,36 @@
       text-transform: uppercase;
     }
 
+    .stage-copy {
+      max-width: 460px;
+      margin: .85rem 0 0;
+      color: var(--bone-soft);
+      font-size: .94rem;
+      line-height: 1.62;
+    }
+
+    .stage-link {
+      width: max-content;
+      margin-top: 1rem;
+      padding: .62rem .86rem;
+      border: 1px solid rgba(212, 175, 55, .44);
+      border-radius: 999px;
+      color: var(--gold-light);
+      background: rgba(5, 5, 5, .48);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .stage-link:hover,
+    .stage-link:focus-visible {
+      color: #080704;
+      border-color: var(--gold-light);
+      background: var(--gold-light);
+    }
+
     .stage-dots {
       position: absolute;
       top: 1rem;
@@ -640,22 +695,29 @@
     }
 
     .world-copy {
+      order: 1;
       display: grid;
       gap: .85rem;
     }
 
     .world-chapter {
       position: relative;
-      min-height: 360px;
+      min-height: auto;
       display: grid;
       align-content: center;
-      padding: clamp(28px, 4vw, 44px) clamp(18px, 3vw, 30px);
+      padding: clamp(18px, 2.4vw, 26px);
       border: 1px solid rgba(242, 234, 217, .09);
       border-left: 2px solid rgba(212, 175, 55, .24);
       border-radius: 18px;
       background: rgba(17, 16, 13, .54);
       opacity: .62;
+      cursor: pointer;
       transition: opacity .28s ease, border-color .28s ease, background .28s ease, transform .28s ease;
+    }
+
+    .world-chapter:focus-visible {
+      outline: 2px solid rgba(243, 217, 124, .82);
+      outline-offset: 3px;
     }
 
     .world-chapter.is-active {
@@ -680,7 +742,7 @@
       margin: .8rem 0 0;
       color: var(--bone);
       font-family: var(--serif);
-      font-size: clamp(2.15rem, 4vw, 4rem);
+      font-size: clamp(1.65rem, 2.8vw, 2.5rem);
       font-weight: 500;
       line-height: 1;
     }
@@ -693,15 +755,15 @@
 
     .world-chapter p {
       max-width: 560px;
-      margin: 1rem 0 0;
+      margin: .72rem 0 0;
       color: var(--bone-soft);
-      font-size: .98rem;
-      line-height: 1.7;
+      font-size: .9rem;
+      line-height: 1.58;
     }
 
     .world-link {
       width: max-content;
-      margin-top: 1.25rem;
+      margin-top: .9rem;
       padding-bottom: .4rem;
       border-bottom: 1px solid rgba(212, 175, 55, .58);
       color: var(--gold-light);
@@ -712,6 +774,7 @@
     }
 
     .portal-section {
+      order: 1;
       background:
         radial-gradient(circle at 78% 16%, rgba(212, 175, 55, .1), transparent 30rem),
         #070706;
@@ -831,6 +894,10 @@
       align-items: stretch;
     }
 
+    #process {
+      order: 3;
+    }
+
     .process-media {
       min-height: 440px;
       border: 1px solid var(--line);
@@ -870,6 +937,7 @@
     }
 
     .statement {
+      order: 5;
       position: relative;
       overflow: hidden;
       padding-block: clamp(76px, 8vw, 120px);
@@ -900,6 +968,7 @@
     }
 
     .final-cta {
+      order: 6;
       position: relative;
       overflow: hidden;
       padding-block: clamp(82px, 9vw, 132px);
@@ -1065,6 +1134,14 @@
         padding: .55rem 0 !important;
       }
 
+      .navbar.va-nav > .container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: wrap !important;
+        gap: 0 .75rem !important;
+      }
+
       .navbar.va-nav .navbar-brand,
       .navbar .va-brand {
         max-width: calc(100% - 92px) !important;
@@ -1074,6 +1151,11 @@
 
       .navbar.va-nav .navbar-toggler,
       .navbar-toggler {
+        flex: 0 0 auto !important;
+        display: inline-flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         min-width: 40px !important;
         min-height: 38px !important;
         padding: .34rem .5rem !important;
@@ -1088,9 +1170,16 @@
       }
 
       .navbar.va-nav .navbar-collapse {
+        display: none !important;
+        flex-basis: 100% !important;
+        width: 100% !important;
         margin-top: .55rem !important;
         padding: .7rem !important;
         border-radius: 14px !important;
+      }
+
+      .navbar.va-nav .navbar-collapse.show {
+        display: block !important;
       }
 
       .navbar.va-nav .nav-link,
@@ -1414,7 +1503,7 @@
         <p class="eyebrow reveal fade-up">Original Artwork by Ulises Vargas</p>
         <h1 class="reveal fade-up">Vargas <span>Arts</span></h1>
         <p class="hero-subhead reveal fade-up">
-          Wildlife, fantasy and fine art scenes built with color, emotion and a cinematic sense of story.
+          Wildlife, fantasy and fine art scenes shaped with color, emotion and story.
         </p>
         <p class="hero-body reveal fade-up">
           Explore original paintings, drawings, digital art and murals from a Gainesville artist whose work moves
@@ -1435,7 +1524,7 @@
         </div>
       </aside>
     </div>
-    <a class="scroll-cue" href="#identity" aria-label="Scroll to artist identity">
+    <a class="scroll-cue" href="#collections" aria-label="Scroll to portfolio collections">
       Scroll
       <span aria-hidden="true"></span>
     </a>
@@ -1473,18 +1562,18 @@
     <section class="section worlds" id="worlds" aria-labelledby="worlds-title">
       <div class="container">
         <div class="section-head reveal fade-up">
-          <p class="eyebrow">Art Worlds</p>
-          <h2 class="section-title" id="worlds-title">Follow the work through <em>five paths</em>.</h2>
+          <p class="eyebrow">Interactive Portfolio</p>
+          <h2 class="section-title" id="worlds-title">Choose your <em>visual world</em>.</h2>
           <p class="section-copy">
-            A modular scroll sequence connects the portfolio without forcing oversized poster typography or unstable
-            image crops.
+            Select a category to preview an artwork direction, read the focus, and move directly into that part of the
+            portfolio.
           </p>
         </div>
 
         <div class="world-layout">
           <div class="world-stage" aria-hidden="true">
             <div class="stage-card">
-              <div class="stage-dots">
+              <div class="stage-dots" aria-hidden="true">
                 <button class="stage-dot is-active" type="button" data-scene-jump="wildlife" tabindex="-1"></button>
                 <button class="stage-dot" type="button" data-scene-jump="fantasy" tabindex="-1"></button>
                 <button class="stage-dot" type="button" data-scene-jump="paintings" tabindex="-1"></button>
@@ -1510,6 +1599,8 @@
                 <div>
                   <span id="stage-number">01</span>
                   <strong id="stage-title">Wildlife & Nature</strong>
+                  <p class="stage-copy" id="stage-copy">Animals, flowers and landscapes become expressive scenes shaped by contrast, warmth and movement.</p>
+                  <a class="stage-link" id="stage-link" href="./paintings.html">View paintings</a>
                 </div>
                 <span>Vargas Arts</span>
               </div>
@@ -1517,36 +1608,36 @@
           </div>
 
           <div class="world-copy">
-            <article class="world-chapter is-active reveal slide-left" data-scene="wildlife">
-              <span class="world-index">Chapter 01</span>
+            <article class="world-chapter is-active reveal slide-left" data-scene="wildlife" role="button" tabindex="0" aria-pressed="true">
+              <span class="world-index">Nature</span>
               <h3>Wildlife <em>& Nature</em></h3>
               <p>Animals, flowers, landscapes and quiet natural details become dramatic subjects, painted with contrast,
                 warmth and movement.</p>
               <a class="world-link" href="./paintings.html">View paintings</a>
             </article>
-            <article class="world-chapter reveal slide-left" data-scene="fantasy">
-              <span class="world-index">Chapter 02</span>
+            <article class="world-chapter reveal slide-left" data-scene="fantasy" role="button" tabindex="0" aria-pressed="false">
+              <span class="world-index">Fantasy</span>
               <h3>Fantasy <em>& Imagination</em></h3>
               <p>Dreamlike digital compositions open into worlds where atmosphere and color carry the story beyond the
                 edges of the frame.</p>
               <a class="world-link" href="./digital_art.html">View digital art</a>
             </article>
-            <article class="world-chapter reveal slide-left" data-scene="paintings">
-              <span class="world-index">Chapter 03</span>
+            <article class="world-chapter reveal slide-left" data-scene="paintings" role="button" tabindex="0" aria-pressed="false">
+              <span class="world-index">Original</span>
               <h3>Original <em>Paintings</em></h3>
               <p>Canvas work gives the portfolio its tactile heart, from expressive wildlife studies to scenes filled
                 with light, texture and feeling.</p>
               <a class="world-link" href="./paintings.html">Explore originals</a>
             </article>
-            <article class="world-chapter reveal slide-left" data-scene="digital">
-              <span class="world-index">Chapter 04</span>
+            <article class="world-chapter reveal slide-left" data-scene="digital" role="button" tabindex="0" aria-pressed="false">
+              <span class="world-index">Digital</span>
               <h3>Digital <em>Art</em></h3>
               <p>Digital pieces sharpen the cinematic mood, blending fire, water, weather and surreal light into images
                 that feel suspended in motion.</p>
               <a class="world-link" href="./digital_art.html">Enter digital gallery</a>
             </article>
-            <article class="world-chapter reveal slide-left" data-scene="process">
-              <span class="world-index">Chapter 05</span>
+            <article class="world-chapter reveal slide-left" data-scene="process" role="button" tabindex="0" aria-pressed="false">
+              <span class="world-index">Process</span>
               <h3>Drawings <em>& Studio Process</em></h3>
               <p>Pencil and detail work reveal the discipline behind the spectacle: observation, line, patience and the
                 first spark of every larger idea.</p>
@@ -1727,6 +1818,8 @@
       var navCollapse = document.getElementById("navigation");
       var stageTitle = document.getElementById("stage-title");
       var stageNumber = document.getElementById("stage-number");
+      var stageCopy = document.getElementById("stage-copy");
+      var stageLink = document.getElementById("stage-link");
       var chapters = Array.prototype.slice.call(document.querySelectorAll("[data-scene]"));
       var sceneNames = {
         wildlife: "Wildlife & Nature",
@@ -1742,6 +1835,20 @@
         digital: "04",
         process: "05"
       };
+      var sceneDescriptions = {
+        wildlife: "Animals, flowers and landscapes become expressive scenes shaped by contrast, warmth and movement.",
+        fantasy: "Fantasy-driven images use light, mood and character to open imaginative visual worlds.",
+        paintings: "Original canvas work carries the portfolio's tactile heart through color, texture and feeling.",
+        digital: "Digital compositions blend atmosphere, fire, water and surreal light into story-led scenes.",
+        process: "Drawings and studies reveal the line work, observation and discipline behind the finished pieces."
+      };
+      var sceneLinks = {
+        wildlife: { href: "./paintings.html", text: "View paintings" },
+        fantasy: { href: "./digital_art.html", text: "View digital art" },
+        paintings: { href: "./paintings.html", text: "Explore originals" },
+        digital: { href: "./digital_art.html", text: "Enter digital gallery" },
+        process: { href: "./drawings.html", text: "See drawings" }
+      };
       var currentScene = "wildlife";
       var ticking = false;
 
@@ -1755,7 +1862,6 @@
           var heroOffset = Math.min(window.scrollY, window.innerHeight);
           root.style.setProperty("--hero-y", (heroOffset * (compact ? .03 : .06)).toFixed(1) + "px");
           root.style.setProperty("--hero-scale", ((compact ? 1.025 : 1.04) + progress * (compact ? .01 : .018)).toFixed(3));
-          root.style.setProperty("--stage-y", Math.sin(progress * Math.PI) * (compact ? 0 : 4) + "px");
         }
 
         if (nav && window.scrollY > 18) {
@@ -1817,7 +1923,9 @@
         currentScene = scene || currentScene;
 
         chapters.forEach(function (chapter) {
-          chapter.classList.toggle("is-active", chapter.dataset.scene === currentScene);
+          var active = chapter.dataset.scene === currentScene;
+          chapter.classList.toggle("is-active", active);
+          chapter.setAttribute("aria-pressed", String(active));
         });
 
         document.querySelectorAll("[data-scene-image]").forEach(function (image) {
@@ -1835,26 +1943,34 @@
         if (stageNumber && sceneNumbers[currentScene]) {
           stageNumber.textContent = sceneNumbers[currentScene];
         }
-      }
 
-      if ("IntersectionObserver" in window) {
-        var chapterObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              setActiveScene(entry.target.dataset.scene);
-            }
-          });
-        }, { threshold: .5, rootMargin: "-12% 0px -35% 0px" });
+        if (stageCopy && sceneDescriptions[currentScene]) {
+          stageCopy.textContent = sceneDescriptions[currentScene];
+        }
 
-        chapters.forEach(function (chapter) {
-          chapterObserver.observe(chapter);
-        });
+        if (stageLink && sceneLinks[currentScene]) {
+          stageLink.href = sceneLinks[currentScene].href;
+          stageLink.textContent = sceneLinks[currentScene].text;
+        }
       }
 
       document.querySelectorAll("[data-scene-jump]").forEach(function (dot) {
         dot.addEventListener("click", function () {
-          var target = document.querySelector('[data-scene="' + dot.dataset.sceneJump + '"]');
-          if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+          setActiveScene(dot.dataset.sceneJump);
+        });
+      });
+
+      chapters.forEach(function (chapter) {
+        chapter.addEventListener("click", function (event) {
+          if (event.target.closest("a")) return;
+          setActiveScene(chapter.dataset.scene);
+        });
+
+        chapter.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            setActiveScene(chapter.dataset.scene);
+          }
         });
       });
 
