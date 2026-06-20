@@ -1,33 +1,36 @@
-/* Vargas Arts shared navigation system
-   One source of truth for gallery/interior page navbars.
-
-   This file controls navbar size, typography, active state and glow only.
-   It does not add, remove, hide or reorder navigation items.
+/* Vargas Arts shared navigation system.
+   Gives gallery/interior Bootstrap navbars the same black/gold pill style as the homepage.
+   It does not remove, reorder or rewrite navigation links.
 */
 
 :root {
   --va-black: #050505;
+  --va-charcoal: #101010;
   --va-gold: #d4af37;
-  --va-gold-light: #f3d979;
-  --va-white: #f8f3e9;
-  --va-nav-border: rgba(212, 175, 55, .18);
+  --va-gold-light: #f5d76e;
+  --va-white: #f8f1df;
+  --va-muted: rgba(248, 241, 223, .72);
 }
 
 .navbar.va-nav,
 .navbar.navx {
-  min-height: 68px !important;
-  padding: .95rem 0 !important;
-  margin: 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1050 !important;
+  min-height: 76px !important;
   display: flex !important;
   align-items: center !important;
+  margin: 0 !important;
+  padding: .82rem 0 !important;
   overflow: visible !important;
-  background: rgba(5, 5, 5, .92) !important;
   border: 0 !important;
-  border-bottom: 1px solid var(--va-nav-border) !important;
+  border-bottom: 1px solid transparent !important;
+  background: rgba(5, 5, 5, .68) !important;
   box-shadow: none !important;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  transition: none !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
   animation: none !important;
 }
 
@@ -40,54 +43,105 @@
   -webkit-tap-highlight-color: transparent !important;
 }
 
+.navbar.va-nav > .container,
+.navbar.navx > .container {
+  width: min(1160px, calc(100% - 32px)) !important;
+  max-width: 1160px !important;
+  min-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  margin-inline: auto !important;
+  padding: .34rem .42rem .34rem .82rem !important;
+  border: 1px solid rgba(248, 241, 223, .1) !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02)),
+    rgba(13, 13, 13, .82) !important;
+  box-shadow: 0 14px 50px rgba(0, 0, 0, .34) !important;
+}
+
 .navbar.va-nav .navbar-brand,
 .navbar.navx .navbar-brand,
 .navbar .va-brand,
 .navbar .brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .65rem !important;
+  min-width: max-content !important;
+  margin: 0 1rem 0 0 !important;
+  padding: 0 !important;
   color: var(--va-gold-light) !important;
   font-family: Montserrat, Arial, sans-serif !important;
-  font-size: .98rem !important;
+  font-size: .82rem !important;
   font-style: normal !important;
   font-variant: normal !important;
-  font-weight: 800 !important;
-  letter-spacing: .16em !important;
+  font-weight: 900 !important;
+  letter-spacing: .14em !important;
   line-height: 1.2 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-right: 1rem !important;
   text-transform: uppercase !important;
   white-space: nowrap !important;
   transform: none !important;
   text-shadow: none !important;
 }
 
+.navbar.va-nav .navbar-brand::before,
+.navbar.navx .navbar-brand::before,
+.navbar .va-brand::before,
+.navbar .brand::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 34px !important;
+  height: 34px !important;
+  flex: 0 0 34px !important;
+  border-radius: 50% !important;
+  background: url("../img/Yofabicon.png") center / contain no-repeat !important;
+  box-shadow: 0 0 24px rgba(212, 175, 55, .2) !important;
+}
+
+.navbar.va-nav .navbar-collapse,
+.navbar.navx .navbar-collapse {
+  min-width: 0 !important;
+}
+
+.navbar.va-nav .navbar-nav,
+.navbar.navx .navbar-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: .2rem !important;
+  margin: 0 !important;
+}
+
 .navbar.va-nav .nav-link,
 .navbar.navx .nav-link,
 .navbar.va-nav .navbar-nav .nav-item .nav-link,
 .navbar.navx .navbar-nav .nav-item .nav-link {
-  color: rgba(248, 243, 233, .86) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 36px !important;
+  margin: 0 !important;
+  padding: .55rem .72rem !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  color: var(--va-muted) !important;
+  background: transparent !important;
+  box-shadow: none !important;
   font-family: Montserrat, Arial, sans-serif !important;
-  font-size: .74rem !important;
+  font-size: .72rem !important;
   font-style: normal !important;
   font-variant: normal !important;
-  font-weight: 700 !important;
-  letter-spacing: .06em !important;
-  line-height: 1.35 !important;
-  padding: .35rem .45rem !important;
-  margin-left: .35rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .045em !important;
+  line-height: 1.1 !important;
   text-transform: uppercase !important;
   white-space: nowrap !important;
   transform: none !important;
-  scale: 1 !important;
-  zoom: 1 !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
   text-shadow: none !important;
-  border-radius: 999px !important;
   outline: 1px solid transparent !important;
   outline-offset: -1px !important;
-  transition: color .18s ease, background .18s ease, box-shadow .18s ease, outline-color .18s ease !important;
+  transition: color .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease !important;
 }
 
 .navbar.va-nav .nav-link:focus,
@@ -98,8 +152,8 @@
 .navbar.navx .navbar-toggler:focus,
 .navbar.va-nav .navbar-toggler:focus-visible,
 .navbar.navx .navbar-toggler:focus-visible {
-  outline: 1px solid transparent !important;
-  outline-offset: -1px !important;
+  outline: 1px solid rgba(245, 215, 110, .34) !important;
+  outline-offset: 2px !important;
 }
 
 .navbar.va-nav .nav-link:hover,
@@ -109,12 +163,20 @@
 .navbar.va-nav .navbar-nav .nav-item .nav-link:hover,
 .navbar.navx .navbar-nav .nav-item .nav-link:hover,
 .navbar.va-nav .navbar-nav .nav-item .nav-link:focus,
-.navbar.navx .navbar-nav .nav-item .nav-link:focus {
+.navbar.navx .navbar-nav .nav-item .nav-link:focus,
+.navbar.va-nav .nav-link.active,
+.navbar.navx .nav-link.active,
+.navbar.va-nav .active > .nav-link,
+.navbar.navx .active > .nav-link,
+.navbar.va-nav .navbar-nav .nav-item .nav-link.active,
+.navbar.navx .navbar-nav .nav-item .nav-link.active,
+.navbar.va-nav .navbar-nav .nav-item.active > .nav-link,
+.navbar.navx .navbar-nav .nav-item.active > .nav-link {
   color: var(--va-gold-light) !important;
-  background: linear-gradient(135deg, rgba(243, 217, 121, .2), rgba(212, 175, 55, .08)) !important;
-  box-shadow: inset 0 0 0 1px rgba(243, 217, 121, .48), 0 0 16px rgba(212, 175, 55, .4) !important;
-  text-shadow: 0 0 9px rgba(243, 217, 121, .42) !important;
-  outline-color: rgba(243, 217, 121, .45) !important;
+  border-color: rgba(245, 215, 110, .32) !important;
+  background: rgba(212, 175, 55, .1) !important;
+  box-shadow: 0 0 24px rgba(212, 175, 55, .13), inset 0 0 0 1px rgba(245, 215, 110, .12) !important;
+  text-shadow: none !important;
 }
 
 .navbar.va-nav .nav-link.active,
@@ -125,44 +187,144 @@
 .navbar.navx .navbar-nav .nav-item .nav-link.active,
 .navbar.va-nav .navbar-nav .nav-item.active > .nav-link,
 .navbar.navx .navbar-nav .nav-item.active > .nav-link {
-  color: var(--va-gold-light) !important;
-  background: linear-gradient(135deg, rgba(243, 217, 121, .3), rgba(212, 175, 55, .12)) !important;
-  box-shadow: inset 0 0 0 1px rgba(243, 217, 121, .68), 0 0 18px rgba(212, 175, 55, .56), 0 0 34px rgba(212, 175, 55, .22) !important;
-  text-shadow: 0 0 11px rgba(243, 217, 121, .56) !important;
-  outline-color: rgba(243, 217, 121, .62) !important;
+  border-color: rgba(245, 215, 110, .42) !important;
+  box-shadow: 0 0 28px rgba(212, 175, 55, .18), inset 0 0 0 1px rgba(245, 215, 110, .18) !important;
 }
 
 .navbar.va-nav .navbar-toggler,
 .navbar.navx .navbar-toggler,
 .navbar-toggler {
-  border: 1px solid rgba(212, 175, 55, .36) !important;
-  border-radius: 10px !important;
-  padding: .45rem .65rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  flex: 0 0 40px !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid rgba(245, 215, 110, .42) !important;
+  border-radius: 50% !important;
+  color: var(--va-gold-light) !important;
+  background: rgba(255, 255, 255, .04) !important;
+  box-shadow: none !important;
   line-height: 1 !important;
-  background: transparent !important;
-  transition: none !important;
-  animation: none !important;
+  transition: border-color .18s ease, background .18s ease !important;
+}
+
+.navbar.va-nav .navbar-toggler:hover,
+.navbar.navx .navbar-toggler:hover {
+  border-color: rgba(245, 215, 110, .68) !important;
+  background: rgba(212, 175, 55, .1) !important;
 }
 
 .navbar-toggler-icon-line,
 .bar {
   display: block !important;
-  width: 22px !important;
+  width: 17px !important;
   height: 2px !important;
   min-height: 2px !important;
   max-height: 2px !important;
-  margin: 4px 0 !important;
+  margin: 2px 0 !important;
+  border-radius: 999px !important;
   background: var(--va-gold-light) !important;
 }
 
+@media (max-width: 1190px) and (min-width: 992px) {
+  .navbar.va-nav > .container,
+  .navbar.navx > .container {
+    width: min(1240px, calc(100% - 24px)) !important;
+    padding-left: .65rem !important;
+  }
+
+  .navbar.va-nav .navbar-brand,
+  .navbar.navx .navbar-brand,
+  .navbar .va-brand,
+  .navbar .brand {
+    gap: .48rem !important;
+    font-size: .72rem !important;
+    letter-spacing: .1em !important;
+  }
+
+  .navbar.va-nav .navbar-brand::before,
+  .navbar.navx .navbar-brand::before,
+  .navbar .va-brand::before,
+  .navbar .brand::before {
+    width: 30px !important;
+    height: 30px !important;
+    flex-basis: 30px !important;
+  }
+
+  .navbar.va-nav .nav-link,
+  .navbar.navx .nav-link,
+  .navbar.va-nav .navbar-nav .nav-item .nav-link,
+  .navbar.navx .navbar-nav .nav-item .nav-link {
+    padding-inline: .45rem !important;
+    font-size: .64rem !important;
+  }
+}
+
 @media (max-width: 991px) {
+  .navbar.va-nav,
+  .navbar.navx {
+    min-height: 74px !important;
+    padding: .65rem 0 !important;
+  }
+
+  .navbar.va-nav > .container,
+  .navbar.navx > .container {
+    position: relative !important;
+    width: calc(100% - 28px) !important;
+    flex-wrap: wrap !important;
+    padding: .34rem .38rem .34rem .72rem !important;
+    border-radius: 24px !important;
+  }
+
+  .navbar.va-nav .navbar-brand,
+  .navbar.navx .navbar-brand,
+  .navbar .va-brand,
+  .navbar .brand {
+    max-width: calc(100% - 64px) !important;
+    gap: .5rem !important;
+    font-size: .76rem !important;
+    letter-spacing: .1em !important;
+    overflow: hidden !important;
+  }
+
+  .navbar.va-nav .navbar-brand::before,
+  .navbar.navx .navbar-brand::before,
+  .navbar .va-brand::before,
+  .navbar .brand::before {
+    width: 30px !important;
+    height: 30px !important;
+    flex-basis: 30px !important;
+  }
+
+  .navbar.va-nav .navbar-toggler,
+  .navbar.navx .navbar-toggler,
+  .navbar-toggler {
+    display: inline-flex !important;
+  }
+
   .navbar.va-nav .navbar-collapse,
-  .navbar.navx .navbar-collapse {
-    margin-top: .8rem !important;
-    padding: 1rem !important;
-    border: 1px solid rgba(212, 175, 55, .28) !important;
-    border-radius: 18px !important;
-    background: #050505 !important;
+  .navbar.navx .navbar-collapse,
+  .navbar-collapse {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    margin-top: .65rem !important;
+    padding: .75rem !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(245, 215, 110, .22) !important;
+    border-radius: 22px !important;
+    background: rgba(5, 5, 5, .96) !important;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, .34) !important;
+  }
+
+  .navbar.va-nav .navbar-nav,
+  .navbar.navx .navbar-nav {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: .25rem !important;
   }
 
   .navbar.va-nav .nav-link,
@@ -171,22 +333,21 @@
   .navbar.navx .nav-link.active,
   .navbar.va-nav .active > .nav-link,
   .navbar.navx .active > .nav-link {
-    margin-left: 0 !important;
-    padding: .7rem .6rem !important;
-    font-size: .74rem !important;
-    font-weight: 700 !important;
-    line-height: 1.35 !important;
+    width: 100% !important;
+    min-height: 44px !important;
+    justify-content: center !important;
+    padding: .74rem .8rem !important;
+    font-size: .72rem !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 430px) {
   .navbar.va-nav .navbar-brand,
   .navbar.navx .navbar-brand,
   .navbar .va-brand,
   .navbar .brand {
-    font-size: .98rem !important;
-    letter-spacing: .13em !important;
-    max-width: calc(100vw - 112px) !important;
-    overflow: hidden !important;
+    font-size: .7rem !important;
   }
 }

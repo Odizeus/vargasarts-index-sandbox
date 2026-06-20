@@ -314,17 +314,21 @@
     }
 
     .brand-mark {
-      display: grid;
+      display: inline-flex;
       width: 32px;
       height: 32px;
-      place-items: center;
-      border: 1px solid rgba(245, 215, 110, .46);
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 32px;
       border-radius: 50%;
-      color: #151005;
-      background: linear-gradient(135deg, #fff1ad, var(--gold));
-      font-size: .7rem;
-      letter-spacing: 0;
+      background: rgba(255, 255, 255, .04);
       box-shadow: 0 0 28px rgba(212, 175, 55, .22);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .nav-menu {
@@ -501,6 +505,7 @@
     .mockup-main {
       top: 6%;
       right: 3%;
+      z-index: 2;
       width: min(76%, 480px);
       min-height: 460px;
       animation: floatOne 7s ease-in-out infinite;
@@ -510,6 +515,7 @@
       width: 100%;
       height: 340px;
       object-fit: cover;
+      object-position: center;
     }
 
     .mockup-info {
@@ -556,7 +562,7 @@
 
     .mini-card {
       position: absolute;
-      z-index: 3;
+      z-index: 5;
       overflow: hidden;
       border: 1px solid rgba(248, 241, 223, .12);
       border-radius: 24px;
@@ -570,6 +576,7 @@
       width: 100%;
       height: 138px;
       object-fit: cover;
+      object-position: center;
     }
 
     .mini-card .mini-body {
@@ -584,24 +591,24 @@
     }
 
     .mini-one {
-      left: 1%;
-      top: 14%;
-      width: min(38%, 220px);
+      left: -12%;
+      top: 10%;
+      width: min(43%, 246px);
       animation: floatTwo 8s ease-in-out infinite;
     }
 
     .mini-two {
-      left: 7%;
-      bottom: 1%;
-      width: min(42%, 236px);
+      left: -6%;
+      bottom: -4%;
+      width: min(45%, 252px);
       animation: floatThree 7.5s ease-in-out infinite;
     }
 
     .badge-card {
       position: absolute;
-      right: 1%;
-      bottom: 7%;
-      z-index: 4;
+      right: -5%;
+      bottom: 4%;
+      z-index: 6;
       display: grid;
       gap: .25rem;
       width: min(42%, 236px);
@@ -628,59 +635,6 @@
     .badge-card strong {
       font-size: clamp(1.2rem, 2vw, 1.65rem);
       line-height: 1.05;
-    }
-
-    .category-strip {
-      padding: 0 0 clamp(44px, 6vw, 76px);
-    }
-
-    .strip-shell {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      overflow: hidden;
-      padding: .75rem;
-      border: 1px solid rgba(248, 241, 223, .08);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .035);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
-    }
-
-    .strip-label {
-      flex: 0 0 auto;
-      padding: .52rem .72rem;
-      border-radius: 999px;
-      color: #151005;
-      background: linear-gradient(135deg, #fff0a4, var(--gold));
-      font-size: .68rem;
-      font-weight: 900;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-
-    .strip-items {
-      display: flex;
-      flex: 1;
-      justify-content: space-around;
-      gap: .65rem;
-      min-width: 0;
-    }
-
-    .strip-items a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 36px;
-      padding: .48rem .72rem;
-      border: 1px solid rgba(245, 215, 110, .14);
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(0, 0, 0, .2);
-      font-size: .72rem;
-      font-weight: 820;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      white-space: nowrap;
     }
 
     .collection-grid {
@@ -1304,18 +1258,6 @@
       .path-options {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .strip-shell {
-        align-items: flex-start;
-        border-radius: 28px;
-        flex-direction: column;
-      }
-
-      .strip-items {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
     }
 
     @media (max-width: 680px) {
@@ -1505,7 +1447,9 @@
   <header class="site-header" id="site-header">
     <nav class="container nav-shell" aria-label="Primary navigation">
       <a class="brand" href="./index.html" aria-label="Vargas Arts home">
-        <span class="brand-mark" aria-hidden="true">VA</span>
+        <span class="brand-mark" aria-hidden="true">
+          <img src="./assets/img/Yofabicon.png" alt="">
+        </span>
         <span>Vargas Arts</span>
       </a>
 
@@ -1555,10 +1499,10 @@
           </article>
 
           <article class="mini-card mini-one">
-            <img src="./assets/img/digital_art/Fantasyc.jpg" alt="Fantasy digital artwork by Ulises Vargas" loading="lazy">
+            <img src="./assets/img/digital_art/Fire_on_Water.jpg" alt="Fire on Water digital artwork by Ulises Vargas" loading="lazy">
             <div class="mini-body">
               <span class="mini-label">Digital Scenes</span>
-              <strong>Dreamlike worlds with cinematic light.</strong>
+              <strong>Fire, water and cinematic contrast.</strong>
             </div>
           </article>
 
@@ -1574,20 +1518,6 @@
             <span>Gainesville, Florida</span>
             <strong>Wildlife, fantasy and fine art.</strong>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="category-strip" aria-label="Portfolio categories">
-      <div class="container strip-shell reveal">
-        <span class="strip-label">Portfolio</span>
-        <div class="strip-items">
-          <a href="./paintings.html">Paintings</a>
-          <a href="./digital_art.html">Digital Art</a>
-          <a href="./drawings.html">Drawings</a>
-          <a href="./wall_murals.html">Murals</a>
-          <a href="./videos.html">Videos</a>
-          <a href="./sales.html">Art For Sale</a>
         </div>
       </div>
     </section>
@@ -1624,7 +1554,7 @@
           </article>
 
           <article class="collection-card reveal">
-            <img src="./assets/img/paintings/Alpha.jpg" alt="Original painting by Ulises Vargas" loading="lazy">
+            <img src="./assets/img/paintings/ForbiddenNectar.jpg" alt="Forbidden Nectar painting by Ulises Vargas" loading="lazy">
             <div class="collection-body">
               <span class="chip">Canvas</span>
               <h3>Original Paintings</h3>
@@ -1674,7 +1604,7 @@
           </article>
 
           <article class="collection-card reveal">
-            <img src="./assets/img/paintings/wildlifeZ.jpg" alt="Wildlife artwork available through Vargas Arts" loading="lazy">
+            <img src="./assets/img/paintings/Bettaff.jpg" alt="Betta fish painting available through Vargas Arts" loading="lazy">
             <div class="collection-body">
               <span class="chip">Available</span>
               <h3>Available Art</h3>
