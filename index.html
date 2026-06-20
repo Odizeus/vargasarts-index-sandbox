@@ -64,11 +64,16 @@
     html {
       scroll-behavior: smooth;
       background: var(--black);
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       margin: 0;
       min-width: 320px;
+      width: 100%;
+      max-width: 100%;
       color: var(--bone);
       background:
         radial-gradient(circle at 18% 8%, rgba(212, 175, 55, .12), transparent 28rem),
@@ -1127,22 +1132,100 @@
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 768px) {
+      .scroll-progress {
+        top: 58px;
+        height: 3px;
+      }
+
+      .navbar.va-nav {
+        min-height: 58px !important;
+        padding: .55rem 0 !important;
+      }
+
+      .navbar.va-nav .navbar-brand,
+      .navbar .va-brand {
+        max-width: calc(100vw - 92px) !important;
+        font-size: .84rem !important;
+        letter-spacing: .12em !important;
+      }
+
+      .navbar.va-nav .navbar-toggler,
+      .navbar-toggler {
+        min-width: 40px !important;
+        min-height: 38px !important;
+        padding: .34rem .5rem !important;
+        border-radius: 9px !important;
+      }
+
+      .navbar-toggler-icon-line,
+      .bar {
+        width: 18px !important;
+        height: 2px !important;
+        margin: 3px 0 !important;
+      }
+
+      .navbar.va-nav .navbar-collapse {
+        margin-top: .55rem !important;
+        padding: .7rem !important;
+        border-radius: 14px !important;
+      }
+
+      .navbar.va-nav .nav-link,
+      .navbar.va-nav .nav-link.active {
+        padding: .55rem .5rem !important;
+        font-size: .68rem !important;
+        letter-spacing: .055em !important;
+      }
+
       .container,
       .hero-inner {
-        width: min(100% - 36px, 1220px);
+        width: min(100% - 32px, 1220px);
       }
 
       .hero {
-        min-height: 96svh;
+        min-height: 88svh;
+        align-items: center;
       }
 
       .hero-inner {
-        padding: 124px 0 82px;
+        padding: 94px 0 72px;
+      }
+
+      .kicker {
+        gap: 10px;
+        font-size: .66rem;
+        letter-spacing: .18em;
+      }
+
+      .kicker::before {
+        width: 28px;
       }
 
       .hero h1 {
-        font-size: clamp(4rem, 20vw, 6.4rem);
+        max-width: 9ch;
+        margin-top: 16px;
+        font-size: clamp(3.15rem, 15vw, 4.9rem);
+        line-height: .86;
+      }
+
+      .intro-line {
+        max-width: 34rem;
+        margin-top: 20px;
+        font-size: clamp(1.05rem, 5vw, 1.42rem);
+        line-height: 1.38;
+      }
+
+      .intro-copy {
+        max-width: 34rem;
+        margin-top: 12px;
+        font-size: .92rem;
+        line-height: 1.62;
+      }
+
+      .actions {
+        gap: 10px;
+        margin-top: 24px;
       }
 
       .actions,
@@ -1150,50 +1233,163 @@
         width: 100%;
       }
 
+      .button {
+        min-height: 46px;
+        padding: 12px 16px;
+        font-size: .68rem;
+        letter-spacing: .12em;
+      }
+
+      .scroll-cue {
+        bottom: 16px;
+        gap: 7px;
+        font-size: .58rem;
+        letter-spacing: .24em;
+      }
+
+      .scroll-cue span {
+        height: 28px;
+      }
+
       .section,
       .chapters {
-        padding: 74px 0;
+        padding: 58px 0;
       }
 
       .scene-divider {
-        min-height: 25vh;
+        min-height: 22svh;
+      }
+
+      .divider-title {
+        width: min(100% - 32px, 620px);
+        font-size: clamp(1.65rem, 8.4vw, 2.55rem);
+        line-height: 1.03;
       }
 
       .section-heading {
-        margin-bottom: 34px;
+        max-width: 36rem;
+        margin-bottom: 28px;
+      }
+
+      .section-heading h2,
+      .final-cta h2 {
+        font-size: clamp(2.1rem, 9.5vw, 3.25rem);
+        line-height: .98;
+      }
+
+      .section-copy,
+      .chapter p,
+      .final-cta p {
+        font-size: .93rem;
+        line-height: 1.65;
+      }
+
+      .chapter-layout {
+        gap: 28px;
       }
 
       .stage-frame {
-        aspect-ratio: 4 / 4.8;
+        width: min(100%, 430px);
+        aspect-ratio: 4 / 4.45;
+        transform: none;
       }
 
       .stage-label {
-        left: 22px;
-        right: 22px;
-        bottom: 22px;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
         display: grid;
+        gap: 4px;
+        font-size: .58rem;
+        letter-spacing: .16em;
+      }
+
+      .scene-indicators {
+        left: 18px;
+        top: 18px;
+        gap: 8px;
+      }
+
+      .scene-dot {
+        width: 30px;
+      }
+
+      .scene-dot.is-active {
+        width: 48px;
+      }
+
+      .stage-chapter-number {
+        right: 18px;
+        top: 14px;
+        font-size: clamp(3.3rem, 20vw, 5.8rem);
       }
 
       .chapter {
-        padding: 54px 0 54px 20px;
+        min-height: auto;
+        padding: 38px 0 40px 18px;
+        opacity: .58;
+        transform: none;
+      }
+
+      .chapter.is-active {
+        transform: translateX(4px);
+      }
+
+      .chapter.is-active::before {
+        height: 42%;
+      }
+
+      .chapter-number {
+        font-size: .66rem;
+        letter-spacing: .18em;
       }
 
       .chapter h2,
-      .section-heading h2,
-      .final-cta h2,
       .statement blockquote {
-        font-size: clamp(2.6rem, 14vw, 4.3rem);
+        font-size: clamp(2rem, 9.5vw, 3rem);
+        line-height: 1.04;
+      }
+
+      .chapter h2 {
+        margin-top: 12px;
+        font-size: clamp(2.15rem, 10vw, 3.35rem);
+        line-height: .94;
+      }
+
+      .chapter-link {
+        margin-top: 20px;
+        font-size: .66rem;
+        letter-spacing: .14em;
       }
 
       .portal-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
       }
 
       .portal-card,
       .portal-card:nth-child(2),
       .portal-card:nth-child(5) {
-        min-height: 340px;
+        min-height: 300px;
         transform: none;
+      }
+
+      .portal-content {
+        padding: 22px;
+      }
+
+      .portal-content span {
+        font-size: .62rem;
+        letter-spacing: .18em;
+      }
+
+      .portal-content h3 {
+        font-size: clamp(1.75rem, 8.5vw, 2.5rem);
+      }
+
+      .portal-content p {
+        font-size: .9rem;
+        line-height: 1.55;
       }
 
       .portal-card:nth-child(2):hover,
@@ -1209,15 +1405,181 @@
       }
 
       .statement {
+        min-height: 64svh;
+        padding: 56px 0;
         background-attachment: scroll;
+      }
+
+      .final-cta {
+        min-height: 72svh;
+        padding: 64px 0;
+      }
+
+      .site-footer {
+        padding: 40px 0;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .footer-bottom {
         display: grid;
+        gap: 8px;
+        margin-top: 30px;
+        font-size: .8rem;
+      }
+
+      .fade-up {
+        transform: translateY(18px);
+      }
+
+      .slide-left {
+        transform: translateX(18px);
+      }
+
+      .slide-right {
+        transform: translateX(-18px);
+      }
+
+      .scale-in {
+        transform: scale(.98);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .scroll-progress {
+        top: 54px;
+      }
+
+      .navbar.va-nav {
+        min-height: 54px !important;
+        padding: .45rem 0 !important;
+      }
+
+      .navbar.va-nav .navbar-brand,
+      .navbar .va-brand {
+        font-size: .78rem !important;
+        letter-spacing: .1em !important;
+      }
+
+      .navbar.va-nav .navbar-toggler,
+      .navbar-toggler {
+        min-width: 38px !important;
+        min-height: 36px !important;
+        padding: .3rem .46rem !important;
+      }
+
+      .container,
+      .hero-inner {
+        width: min(100% - 28px, 1220px);
+      }
+
+      .hero {
+        min-height: 86svh;
+      }
+
+      .hero-inner {
+        padding: 82px 0 64px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 14.5vw, 4rem);
+      }
+
+      .intro-line {
+        font-size: clamp(1rem, 4.8vw, 1.22rem);
+      }
+
+      .intro-copy {
+        font-size: .86rem;
+        line-height: 1.58;
+      }
+
+      .button {
+        min-height: 43px;
+        padding: 11px 14px;
+        font-size: .63rem;
+      }
+
+      .section,
+      .chapters {
+        padding: 48px 0;
+      }
+
+      .scene-divider {
+        min-height: 18svh;
+      }
+
+      .divider-title {
+        width: min(100% - 28px, 420px);
+        font-size: clamp(1.45rem, 8vw, 2.05rem);
+      }
+
+      .section-heading h2,
+      .final-cta h2 {
+        font-size: clamp(1.9rem, 9vw, 2.65rem);
+      }
+
+      .stage-frame {
+        aspect-ratio: 4 / 4.1;
+      }
+
+      .chapter {
+        padding: 32px 0 34px 16px;
+      }
+
+      .chapter h2 {
+        font-size: clamp(1.95rem, 9.4vw, 2.75rem);
+      }
+
+      .statement {
+        min-height: 56svh;
+      }
+
+      .statement blockquote {
+        font-size: clamp(1.65rem, 8.2vw, 2.35rem);
+        line-height: 1.08;
+      }
+
+      .statement cite {
+        margin-top: 20px;
+        font-size: .66rem;
+        letter-spacing: .18em;
+      }
+
+      .portal-card,
+      .portal-card:nth-child(2),
+      .portal-card:nth-child(5) {
+        min-height: 270px;
+      }
+
+      .portal-content {
+        padding: 18px;
+      }
+
+      .final-cta {
+        min-height: 64svh;
+        padding: 54px 0;
+      }
+    }
+
+    @media (hover: none) {
+      .button:hover,
+      .button:focus-visible,
+      .portal-card:hover,
+      .portal-card:focus-visible,
+      .portal-card:nth-child(2):hover,
+      .portal-card:nth-child(2):focus-visible,
+      .portal-card:nth-child(5):hover,
+      .portal-card:nth-child(5):focus-visible {
+        transform: none;
+      }
+
+      .portal-card:hover img,
+      .portal-card:focus-visible img {
+        transform: scale(1.04);
       }
     }
 
@@ -1579,6 +1941,10 @@
       var currentScene = "wildlife";
       var ticking = false;
 
+      function isCompactViewport() {
+        return window.matchMedia("(max-width: 768px)").matches;
+      }
+
       function updateScroll() {
         var max = Math.max(document.body.scrollHeight - window.innerHeight, 1);
         var progress = window.scrollY / max;
@@ -1586,11 +1952,12 @@
 
         if (!reduceMotion) {
           var heroOffset = Math.min(window.scrollY, window.innerHeight);
-          root.style.setProperty("--hero-y", (heroOffset * .24).toFixed(1) + "px");
-          root.style.setProperty("--hero-fg-y", (heroOffset * -.11).toFixed(1) + "px");
-          root.style.setProperty("--hero-haze-y", (heroOffset * .08).toFixed(1) + "px");
-          root.style.setProperty("--hero-scale", (1.1 + progress * .07).toFixed(3));
-          root.style.setProperty("--stage-y", Math.sin(progress * Math.PI) * 14 + "px");
+          var compact = isCompactViewport();
+          root.style.setProperty("--hero-y", (heroOffset * (compact ? .08 : .24)).toFixed(1) + "px");
+          root.style.setProperty("--hero-fg-y", (heroOffset * (compact ? -.03 : -.11)).toFixed(1) + "px");
+          root.style.setProperty("--hero-haze-y", (heroOffset * (compact ? .03 : .08)).toFixed(1) + "px");
+          root.style.setProperty("--hero-scale", ((compact ? 1.055 : 1.1) + progress * (compact ? .018 : .07)).toFixed(3));
+          root.style.setProperty("--stage-y", Math.sin(progress * Math.PI) * (compact ? 4 : 14) + "px");
 
           var activeChapter = document.querySelector('[data-scene="' + currentScene + '"]');
           if (activeChapter) {
