@@ -28,6 +28,8 @@
 
   <link rel="shortcut icon" type="image/png" href="./assets/img/Yofabicon.png">
   <link rel="preload" as="image" href="./assets/img/paintings/Sunrise.jpg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/vargas-nav.css?v=nav-system-6">
 
   <style>
     :root {
@@ -50,6 +52,9 @@
       --hero-y: 0px;
       --hero-scale: 1.08;
       --stage-y: 0px;
+      --hero-fg-y: 0px;
+      --hero-haze-y: 0px;
+      --scene-progress: 0;
     }
 
     * {
@@ -103,14 +108,34 @@
 
     .scroll-progress {
       position: fixed;
-      top: 0;
+      top: 68px;
       left: 0;
-      z-index: 120;
+      z-index: 98;
       width: calc(var(--progress) * 100%);
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-light));
-      box-shadow: 0 0 22px rgba(212, 175, 55, .52);
+      height: 4px;
+      background:
+        linear-gradient(90deg, transparent, rgba(255, 255, 255, .42) 18%, transparent 34%),
+        linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-light));
+      box-shadow: 0 0 18px rgba(212, 175, 55, .48), 0 0 44px rgba(212, 175, 55, .22);
       transform-origin: left center;
+    }
+
+    .navbar.va-nav {
+      background: rgba(5, 5, 5, .68) !important;
+      border-bottom-color: rgba(212, 175, 55, .2) !important;
+      z-index: 110 !important;
+      transition: background .28s ease, border-color .28s ease, box-shadow .28s ease !important;
+    }
+
+    .navbar.va-nav.is-scrolled,
+    .navbar.va-nav.is-open {
+      background: rgba(5, 5, 5, .94) !important;
+      border-bottom-color: rgba(212, 175, 55, .34) !important;
+      box-shadow: 0 14px 48px rgba(0, 0, 0, .38) !important;
+    }
+
+    .navbar.va-nav .nav-link.active {
+      pointer-events: none;
     }
 
     .site-nav {
@@ -251,6 +276,38 @@
       z-index: -4;
       background: url("./assets/img/paintings/Sunrise.jpg") center 42% / cover no-repeat;
       transform: translate3d(0, var(--hero-y), 0) scale(var(--hero-scale));
+      will-change: transform;
+    }
+
+    .hero-depth {
+      position: absolute;
+      inset: auto -8% -18% -8%;
+      z-index: -1;
+      height: 50vh;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, transparent, rgba(5, 5, 5, .52) 34%, #050505 86%),
+        url("./assets/img/paintings/wildlifeZ.jpg") center bottom / cover no-repeat;
+      opacity: .52;
+      filter: saturate(.86) contrast(1.12);
+      transform: translate3d(0, var(--hero-fg-y), 0) scale(1.05);
+      mask-image: linear-gradient(180deg, transparent 0, #000 38%, #000 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 38%, #000 100%);
+      will-change: transform;
+    }
+
+    .hero-atmosphere {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 74%, rgba(212, 175, 55, .18), transparent 24rem),
+        radial-gradient(circle at 78% 16%, rgba(255, 245, 190, .12), transparent 28rem),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 84px);
+      opacity: .55;
+      transform: translate3d(0, var(--hero-haze-y), 0);
+      mix-blend-mode: screen;
       will-change: transform;
     }
 
@@ -465,6 +522,50 @@
       padding: 112px 0;
     }
 
+    .scene-divider {
+      position: relative;
+      min-height: 34vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-block: 1px solid rgba(212, 175, 55, .2);
+      background:
+        linear-gradient(110deg, #050505 0 24%, rgba(212, 175, 55, .18) 48%, #050505 74% 100%),
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, .18), transparent 32rem);
+    }
+
+    .scene-divider::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, .92), transparent 38%, rgba(5, 5, 5, .92)),
+        url("./assets/img/paintings/Alpha.jpg") center 48% / cover no-repeat;
+      opacity: .3;
+      filter: grayscale(.15) saturate(1.05);
+      transform: scale(1.08);
+    }
+
+    .scene-divider.alt::before {
+      background:
+        linear-gradient(90deg, rgba(5, 5, 5, .92), transparent 38%, rgba(5, 5, 5, .92)),
+        url("./assets/img/digital_art/Fire_on_Water.jpg") center / cover no-repeat;
+    }
+
+    .divider-title {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 48px, 1220px);
+      margin: 0 auto;
+      color: rgba(241, 231, 212, .84);
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 7.4vw, 7.5rem);
+      font-style: italic;
+      line-height: .92;
+      text-align: center;
+      text-shadow: 0 24px 70px rgba(0, 0, 0, .72);
+    }
+
     .section-heading {
       max-width: 900px;
       margin-bottom: 48px;
@@ -502,9 +603,10 @@
 
     .chapters {
       min-height: 100vh;
-      padding: 94px 0 120px;
+      padding: 112px 0 136px;
       background:
-        linear-gradient(180deg, var(--black), rgba(18, 16, 13, .92) 46%, var(--black)),
+        linear-gradient(180deg, var(--black), rgba(18, 16, 13, .94) 44%, var(--black)),
+        repeating-linear-gradient(90deg, rgba(212, 175, 55, .035) 0 1px, transparent 1px 120px),
         radial-gradient(circle at 25% 50%, rgba(212, 175, 55, .11), transparent 34rem);
     }
 
@@ -517,8 +619,8 @@
 
     .visual-stage {
       position: sticky;
-      top: 104px;
-      min-height: calc(100vh - 138px);
+      top: 88px;
+      min-height: calc(100vh - 104px);
       display: grid;
       place-items: center;
       transform: translateY(var(--stage-y));
@@ -526,12 +628,21 @@
 
     .stage-frame {
       position: relative;
-      width: min(100%, 700px);
-      aspect-ratio: 4 / 5;
+      width: min(100%, 760px);
+      aspect-ratio: 4 / 5.05;
       border: 1px solid var(--border);
       background: #080705;
-      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, .04);
+      box-shadow:
+        var(--shadow),
+        0 0 0 1px rgba(212, 175, 55, .1),
+        0 0 110px rgba(212, 175, 55, calc(.08 + var(--scene-progress) * .08)),
+        inset 0 0 0 1px rgba(255, 255, 255, .04);
       overflow: hidden;
+      transform:
+        perspective(1200px)
+        rotateY(calc((var(--scene-progress) - .5) * -4deg))
+        rotateX(calc((var(--scene-progress) - .5) * 2deg));
+      transition: box-shadow .6s ease;
     }
 
     .stage-frame::before,
@@ -551,21 +662,27 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 45%;
-      background: linear-gradient(transparent, rgba(5, 5, 5, .92));
+      height: 52%;
+      background:
+        linear-gradient(transparent, rgba(5, 5, 5, .94)),
+        radial-gradient(circle at 48% 100%, rgba(212, 175, 55, .16), transparent 52%);
     }
 
     .stage-image {
       position: absolute;
       inset: 0;
       opacity: 0;
-      transform: scale(1.1);
-      transition: opacity .8s ease, transform 1.15s cubic-bezier(.2, .75, .2, 1);
+      transform: scale(1.18) translateY(26px);
+      clip-path: inset(9% 11% 9% 11%);
+      transition: opacity .75s ease, transform 1.2s cubic-bezier(.2, .75, .2, 1), clip-path 1.2s cubic-bezier(.2, .75, .2, 1), filter .75s ease;
+      filter: saturate(.82) contrast(1.02) brightness(.78);
     }
 
     .stage-image.is-active {
       opacity: 1;
-      transform: scale(1.02);
+      transform: scale(calc(1.035 + var(--scene-progress) * .035)) translateY(calc((var(--scene-progress) - .5) * -18px));
+      clip-path: inset(0 0 0 0);
+      filter: saturate(1.08) contrast(1.1) brightness(1);
     }
 
     .stage-image img {
@@ -592,6 +709,49 @@
       text-transform: uppercase;
     }
 
+    .scene-indicators {
+      position: absolute;
+      left: 28px;
+      top: 28px;
+      z-index: 10;
+      display: grid;
+      gap: 10px;
+    }
+
+    .scene-dot {
+      width: 42px;
+      height: 2px;
+      border: 0;
+      padding: 0;
+      background: rgba(241, 231, 212, .34);
+      cursor: pointer;
+      transition: width .35s ease, background .35s ease, box-shadow .35s ease;
+    }
+
+    .scene-dot.is-active {
+      width: 76px;
+      background: var(--gold-light);
+      box-shadow: 0 0 18px rgba(212, 175, 55, .62);
+    }
+
+    .stage-chapter-number {
+      position: absolute;
+      right: 30px;
+      top: 22px;
+      z-index: 10;
+      color: rgba(243, 217, 129, .2);
+      font-family: var(--serif);
+      font-size: clamp(5rem, 12vw, 10rem);
+      line-height: 1;
+      pointer-events: none;
+      transition: color .45s ease, transform .45s ease;
+    }
+
+    .stage-frame:hover .stage-chapter-number {
+      color: rgba(243, 217, 129, .3);
+      transform: translateY(-6px);
+    }
+
     .chapter-copy {
       display: grid;
       gap: 34px;
@@ -602,21 +762,41 @@
       min-height: 82vh;
       display: grid;
       align-content: center;
-      padding: 48px 0 48px 28px;
+      padding: 54px 0 54px 34px;
       border-left: 1px solid rgba(241, 231, 212, .13);
-      opacity: .42;
-      transition: opacity .45s ease, border-color .45s ease, transform .45s ease;
+      opacity: .34;
+      filter: blur(.2px);
+      transition: opacity .45s ease, border-color .45s ease, transform .45s ease, filter .45s ease;
+      position: relative;
+    }
+
+    .chapter::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: 50%;
+      width: 3px;
+      height: 0;
+      background: linear-gradient(var(--gold-light), var(--gold));
+      box-shadow: 0 0 28px rgba(212, 175, 55, .6);
+      transform: translateY(-50%);
+      transition: height .45s ease;
     }
 
     .chapter.is-active {
       opacity: 1;
       border-left-color: var(--gold);
-      transform: translateX(8px);
+      filter: none;
+      transform: translateX(12px) scale(1.015);
+    }
+
+    .chapter.is-active::before {
+      height: 56%;
     }
 
     .chapter-number {
       color: var(--gold-light);
-      font-size: .76rem;
+      font-size: .8rem;
       font-weight: 900;
       letter-spacing: .26em;
       text-transform: uppercase;
@@ -625,9 +805,9 @@
     .chapter h2 {
       margin: 16px 0 0;
       font-family: var(--serif);
-      font-size: clamp(2.75rem, 5.8vw, 6.4rem);
+      font-size: clamp(3.25rem, 6.6vw, 7.4rem);
       font-weight: 500;
-      line-height: .9;
+      line-height: .84;
       letter-spacing: 0;
     }
 
@@ -666,19 +846,27 @@
     .portal-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 22px;
     }
 
     .portal-card {
       position: relative;
-      min-height: 430px;
+      min-height: 500px;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
       border: 1px solid rgba(212, 175, 55, .24);
       background: #111;
-      box-shadow: 0 22px 80px rgba(0, 0, 0, .36);
+      box-shadow: 0 22px 80px rgba(0, 0, 0, .36), inset 0 0 0 1px rgba(255, 255, 255, .03);
       transition: transform .38s ease, border-color .38s ease, box-shadow .38s ease;
+    }
+
+    .portal-card:first-child {
+      grid-column: span 2;
+    }
+
+    .portal-card:nth-child(6) {
+      grid-column: span 2;
     }
 
     .portal-card:nth-child(2),
@@ -749,8 +937,8 @@
     .portal-card:hover,
     .portal-card:focus-visible {
       border-color: rgba(243, 217, 129, .72);
-      box-shadow: 0 30px 100px rgba(212, 175, 55, .16), 0 24px 90px rgba(0, 0, 0, .5);
-      transform: translateY(-8px);
+      box-shadow: 0 34px 120px rgba(212, 175, 55, .22), 0 24px 90px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(243, 217, 129, .18);
+      transform: translateY(-10px) scale(1.012);
     }
 
     .portal-card:nth-child(2):hover,
@@ -910,31 +1098,6 @@
     }
 
     @media (max-width: 1080px) {
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        left: 24px;
-        right: 24px;
-        top: calc(100% + 10px);
-        display: none;
-        padding: 16px;
-        border: 1px solid var(--border);
-        background: rgba(5, 5, 5, .96);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
-      }
-
-      .site-nav.is-open .nav-links {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .nav-links a {
-        padding: 13px 8px;
-      }
-
       .chapter-layout {
         grid-template-columns: 1fr;
       }
@@ -957,25 +1120,17 @@
       .portal-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .portal-card:first-child,
+      .portal-card:nth-child(6) {
+        grid-column: span 1;
+      }
     }
 
     @media (max-width: 720px) {
       .container,
       .hero-inner {
         width: min(100% - 36px, 1220px);
-      }
-
-      .nav-shell {
-        min-height: 68px;
-      }
-
-      .brand {
-        font-size: .98rem;
-        letter-spacing: .1em;
-      }
-
-      .site-nav.is-open .nav-links {
-        grid-template-columns: 1fr;
       }
 
       .hero {
@@ -998,6 +1153,10 @@
       .section,
       .chapters {
         padding: 74px 0;
+      }
+
+      .scene-divider {
+        min-height: 25vh;
       }
 
       .section-heading {
@@ -1073,8 +1232,15 @@
       }
 
       .hero-art,
-      .visual-stage {
+      .hero-depth,
+      .hero-atmosphere,
+      .visual-stage,
+      .stage-frame,
+      .stage-image,
+      .stage-image.is-active {
         transform: none !important;
+        clip-path: none !important;
+        filter: none !important;
       }
 
       .reveal,
@@ -1089,26 +1255,35 @@
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
 
-  <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-    <div class="container nav-shell">
-      <a class="brand" href="./index.html">Vargas <span>Arts</span></a>
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false"
-        aria-label="Toggle navigation"><span></span></button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="./paintings.html">Paintings</a></li>
-        <li><a href="./digital_art.html">Digital Art</a></li>
-        <li><a href="./drawings.html">Drawings</a></li>
-        <li><a href="./wall_murals.html">Murals</a></li>
-        <li><a href="./videos.html">Videos</a></li>
-        <li><a href="./sales.html">Art for Sale</a></li>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="./contact.html">Contact</a></li>
-      </ul>
+  <nav class="navbar navbar-expand-lg fixed-top va-nav" id="va-nav" aria-label="Primary navigation">
+    <div class="container">
+      <a class="navbar-brand va-brand" href="./index.html">Vargas Arts</a>
+      <button class="navbar-toggler" type="button" aria-controls="navigation" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon-line"></span>
+        <span class="navbar-toggler-icon-line"></span>
+        <span class="navbar-toggler-icon-line"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./paintings.html">Paintings</a></li>
+          <li class="nav-item"><a class="nav-link" href="./digital_art.html">Digital Art</a></li>
+          <li class="nav-item"><a class="nav-link" href="./drawings.html">Drawings</a></li>
+          <li class="nav-item"><a class="nav-link" href="./wall_murals.html">Murals</a></li>
+          <li class="nav-item"><a class="nav-link" href="./videos.html">Videos</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sales.html">Art for Sale</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <header class="hero" id="top">
     <div class="hero-art" aria-hidden="true"></div>
+    <div class="hero-depth" aria-hidden="true"></div>
+    <div class="hero-atmosphere" aria-hidden="true"></div>
     <div class="hero-inner">
       <p class="kicker stagger">Original artwork by Ulises Vargas</p>
       <h1 class="stagger d1">Vargas <span>Arts</span></h1>
@@ -1131,6 +1306,10 @@
   </header>
 
   <main>
+    <section class="scene-divider" aria-hidden="true">
+      <p class="divider-title">The page moves like a gallery after dark.</p>
+    </section>
+
     <section class="chapters" id="chapters" aria-labelledby="chapter-title">
       <div class="container">
         <div class="section-heading reveal fade-up">
@@ -1145,6 +1324,14 @@
         <div class="chapter-layout">
           <div class="visual-stage" aria-hidden="true">
             <div class="stage-frame">
+              <div class="scene-indicators" aria-hidden="true">
+                <button class="scene-dot is-active" type="button" data-scene-jump="wildlife" tabindex="-1"></button>
+                <button class="scene-dot" type="button" data-scene-jump="fantasy" tabindex="-1"></button>
+                <button class="scene-dot" type="button" data-scene-jump="paintings" tabindex="-1"></button>
+                <button class="scene-dot" type="button" data-scene-jump="digital" tabindex="-1"></button>
+                <button class="scene-dot" type="button" data-scene-jump="process" tabindex="-1"></button>
+              </div>
+              <div class="stage-chapter-number" id="stage-number" aria-hidden="true">01</div>
               <div class="stage-image is-active" data-scene-image="wildlife">
                 <img src="./assets/img/paintings/wildlifeB.jpg" alt="">
               </div>
@@ -1220,6 +1407,10 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="scene-divider alt" aria-hidden="true">
+      <p class="divider-title">From one room to the next, each collection opens differently.</p>
     </section>
 
     <section class="section portal-section" id="collections" aria-labelledby="collections-title">
@@ -1365,9 +1556,12 @@
     (function () {
       var root = document.documentElement;
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var nav = document.getElementById("site-nav");
-      var navToggle = document.getElementById("nav-toggle");
+      var nav = document.getElementById("va-nav");
+      var navToggle = document.querySelector(".navbar-toggler");
+      var navCollapse = document.getElementById("navigation");
       var stageTitle = document.getElementById("stage-title");
+      var stageNumber = document.getElementById("stage-number");
+      var chapters = Array.prototype.slice.call(document.querySelectorAll("[data-scene]"));
       var sceneNames = {
         wildlife: "Wildlife & Nature",
         fantasy: "Fantasy & Imagination",
@@ -1375,6 +1569,14 @@
         digital: "Digital Art",
         process: "Drawings & Studio Process"
       };
+      var sceneNumbers = {
+        wildlife: "01",
+        fantasy: "02",
+        paintings: "03",
+        digital: "04",
+        process: "05"
+      };
+      var currentScene = "wildlife";
       var ticking = false;
 
       function updateScroll() {
@@ -1384,14 +1586,25 @@
 
         if (!reduceMotion) {
           var heroOffset = Math.min(window.scrollY, window.innerHeight);
-          root.style.setProperty("--hero-y", (heroOffset * .18).toFixed(1) + "px");
-          root.style.setProperty("--hero-scale", (1.08 + progress * .045).toFixed(3));
-          root.style.setProperty("--stage-y", Math.sin(progress * Math.PI) * 10 + "px");
+          root.style.setProperty("--hero-y", (heroOffset * .24).toFixed(1) + "px");
+          root.style.setProperty("--hero-fg-y", (heroOffset * -.11).toFixed(1) + "px");
+          root.style.setProperty("--hero-haze-y", (heroOffset * .08).toFixed(1) + "px");
+          root.style.setProperty("--hero-scale", (1.1 + progress * .07).toFixed(3));
+          root.style.setProperty("--stage-y", Math.sin(progress * Math.PI) * 14 + "px");
+
+          var activeChapter = document.querySelector('[data-scene="' + currentScene + '"]');
+          if (activeChapter) {
+            var rect = activeChapter.getBoundingClientRect();
+            var center = rect.top + rect.height / 2;
+            var distance = Math.abs(center - window.innerHeight / 2);
+            var sceneProgress = Math.max(0, 1 - distance / (window.innerHeight * .7));
+            root.style.setProperty("--scene-progress", sceneProgress.toFixed(3));
+          }
         }
 
-        if (window.scrollY > 24) {
+        if (nav && window.scrollY > 24) {
           nav.classList.add("is-scrolled");
-        } else {
+        } else if (nav) {
           nav.classList.remove("is-scrolled");
         }
 
@@ -1404,15 +1617,19 @@
         window.requestAnimationFrame(updateScroll);
       }
 
-      navToggle.addEventListener("click", function () {
-        var isOpen = nav.classList.toggle("is-open");
-        navToggle.setAttribute("aria-expanded", String(isOpen));
-      });
+      if (navToggle && navCollapse && nav) {
+        navToggle.addEventListener("click", function () {
+          var isOpen = navCollapse.classList.toggle("show");
+          nav.classList.toggle("is-open", isOpen);
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
 
-      document.querySelectorAll(".nav-links a").forEach(function (link) {
+      document.querySelectorAll(".navbar-nav a").forEach(function (link) {
         link.addEventListener("click", function () {
-          nav.classList.remove("is-open");
-          navToggle.setAttribute("aria-expanded", "false");
+          if (navCollapse) navCollapse.classList.remove("show");
+          if (nav) nav.classList.remove("is-open");
+          if (navToggle) navToggle.setAttribute("aria-expanded", "false");
         });
       });
 
@@ -1441,7 +1658,9 @@
       }
 
       function setActiveScene(scene) {
-        document.querySelectorAll("[data-scene]").forEach(function (chapter) {
+        currentScene = scene;
+
+        chapters.forEach(function (chapter) {
           chapter.classList.toggle("is-active", chapter.dataset.scene === scene);
         });
 
@@ -1449,8 +1668,16 @@
           image.classList.toggle("is-active", image.dataset.sceneImage === scene);
         });
 
+        document.querySelectorAll("[data-scene-jump]").forEach(function (dot) {
+          dot.classList.toggle("is-active", dot.dataset.sceneJump === scene);
+        });
+
         if (stageTitle && sceneNames[scene]) {
           stageTitle.textContent = sceneNames[scene];
+        }
+
+        if (stageNumber && sceneNumbers[scene]) {
+          stageNumber.textContent = sceneNumbers[scene];
         }
       }
 
@@ -1463,10 +1690,17 @@
           });
         }, { threshold: .58, rootMargin: "-15% 0px -25% 0px" });
 
-        document.querySelectorAll("[data-scene]").forEach(function (chapter) {
+        chapters.forEach(function (chapter) {
           chapterObserver.observe(chapter);
         });
       }
+
+      document.querySelectorAll("[data-scene-jump]").forEach(function (dot) {
+        dot.addEventListener("click", function () {
+          var target = document.querySelector('[data-scene="' + dot.dataset.sceneJump + '"]');
+          if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+        });
+      });
 
       window.addEventListener("scroll", requestScrollUpdate, { passive: true });
       window.addEventListener("resize", requestScrollUpdate);
